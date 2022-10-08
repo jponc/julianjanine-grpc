@@ -2,6 +2,7 @@ package apiserver
 
 import (
 	"context"
+	"fmt"
 
 	"julianjanine/internal/apipb"
 )
@@ -19,6 +20,7 @@ func (s *ApiServer) Hello(ctx context.Context, in *apipb.HelloRequest) (*apipb.H
 }
 
 func (s *ApiServer) Healthcheck(ctx context.Context, in *apipb.HealthcheckRequest) (*apipb.HealthcheckResponse, error) {
+	fmt.Printf("Healthcheck...")
 	return &apipb.HealthcheckResponse{Message: "OK"}, nil
 }
 
