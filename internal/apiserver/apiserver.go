@@ -20,7 +20,7 @@ func (s *ApiServer) Hello(ctx context.Context, in *apipb.HelloRequest) (*apipb.H
 }
 
 func (s *ApiServer) Healthcheck(ctx context.Context, in *apipb.HealthcheckRequest) (*apipb.HealthcheckResponse, error) {
-	fmt.Printf("Healthcheck...")
+	fmt.Printf("Healthcheck...\n")
 	return &apipb.HealthcheckResponse{Message: "OK"}, nil
 }
 
