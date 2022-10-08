@@ -23,6 +23,8 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ApiClient interface {
 	Hello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
+	Healthcheck(ctx context.Context, in *HealthcheckRequest, opts ...grpc.CallOption) (*HealthcheckResponse, error)
+	GetGuests(ctx context.Context, in *GetGuestsRequest, opts ...grpc.CallOption) (*GetGuestsResponse, error)
 }
 
 type apiClient struct {
@@ -42,11 +44,31 @@ func (c *apiClient) Hello(ctx context.Context, in *HelloRequest, opts ...grpc.Ca
 	return out, nil
 }
 
+func (c *apiClient) Healthcheck(ctx context.Context, in *HealthcheckRequest, opts ...grpc.CallOption) (*HealthcheckResponse, error) {
+	out := new(HealthcheckResponse)
+	err := c.cc.Invoke(ctx, "/apipb.Api/Healthcheck", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiClient) GetGuests(ctx context.Context, in *GetGuestsRequest, opts ...grpc.CallOption) (*GetGuestsResponse, error) {
+	out := new(GetGuestsResponse)
+	err := c.cc.Invoke(ctx, "/apipb.Api/GetGuests", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility
 type ApiServer interface {
 	Hello(context.Context, *HelloRequest) (*HelloResponse, error)
+	Healthcheck(context.Context, *HealthcheckRequest) (*HealthcheckResponse, error)
+	GetGuests(context.Context, *GetGuestsRequest) (*GetGuestsResponse, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -56,6 +78,12 @@ type UnimplementedApiServer struct {
 
 func (UnimplementedApiServer) Hello(context.Context, *HelloRequest) (*HelloResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Hello not implemented")
+}
+func (UnimplementedApiServer) Healthcheck(context.Context, *HealthcheckRequest) (*HealthcheckResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Healthcheck not implemented")
+}
+func (UnimplementedApiServer) GetGuests(context.Context, *GetGuestsRequest) (*GetGuestsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGuests not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 
@@ -88,6 +116,42 @@ func _Api_Hello_Handler(srv interface{}, ctx context.Context, dec func(interface
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_Healthcheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HealthcheckRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).Healthcheck(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/apipb.Api/Healthcheck",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).Healthcheck(ctx, req.(*HealthcheckRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Api_GetGuests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGuestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).GetGuests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/apipb.Api/GetGuests",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).GetGuests(ctx, req.(*GetGuestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -98,6 +162,14 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Hello",
 			Handler:    _Api_Hello_Handler,
+		},
+		{
+			MethodName: "Healthcheck",
+			Handler:    _Api_Healthcheck_Handler,
+		},
+		{
+			MethodName: "GetGuests",
+			Handler:    _Api_GetGuests_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

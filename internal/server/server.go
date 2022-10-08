@@ -2,8 +2,9 @@ package server
 
 import (
 	"fmt"
-	"log"
 	"net"
+
+	log "github.com/sirupsen/logrus"
 
 	"julianjanine/internal/apipb"
 

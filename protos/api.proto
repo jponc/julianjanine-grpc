@@ -5,12 +5,45 @@ package apipb;
 
 service Api {
   rpc Hello(HelloRequest) returns (HelloResponse) {};
+  rpc Healthcheck(HealthcheckRequest) returns (HealthcheckResponse) {};
+  rpc GetGuests(GetGuestsRequest) returns (GetGuestsResponse) {};
 }
 
+// Hello
 message HelloRequest {
   string name = 1;
 }
 
 message HelloResponse {
   string message = 1;
+}
+
+// Healtcheck
+message HealthcheckRequest {}
+message HealthcheckResponse {
+  string message = 1;
+}
+
+// GetGuests
+message GetGuestsRequest {}
+message GetGuestsResponse {
+  repeated Guest guests = 1;
+}
+
+// Types
+message Guest {
+  string id = 1;
+  string name = 2;
+  Attendance attendance = 3;
+}
+
+message Invitation {
+  string code = 1;
+}
+
+enum Attendance {
+  ATTENDANCE_PENDING = 0;
+  ATTENDANCE_TENTATIVE = 1;
+  ATTENDANCE_YES = 2;
+  ATTENDANCE_NO = 3;
 }
