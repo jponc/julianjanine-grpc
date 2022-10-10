@@ -71,6 +71,9 @@ export namespace HealthcheckResponse {
 }
 
 export class GetGuestsRequest extends jspb.Message {
+  getInvitecode(): string;
+  setInvitecode(value: string): GetGuestsRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetGuestsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetGuestsRequest): GetGuestsRequest.AsObject;
@@ -81,6 +84,7 @@ export class GetGuestsRequest extends jspb.Message {
 
 export namespace GetGuestsRequest {
   export type AsObject = {
+    invitecode: string,
   }
 }
 
@@ -101,6 +105,46 @@ export class GetGuestsResponse extends jspb.Message {
 export namespace GetGuestsResponse {
   export type AsObject = {
     guestsList: Array<Guest.AsObject>,
+  }
+}
+
+export class UpdateAttendanceRequest extends jspb.Message {
+  getGuestid(): string;
+  setGuestid(value: string): UpdateAttendanceRequest;
+
+  getAttendance(): Attendance;
+  setAttendance(value: Attendance): UpdateAttendanceRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UpdateAttendanceRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UpdateAttendanceRequest): UpdateAttendanceRequest.AsObject;
+  static serializeBinaryToWriter(message: UpdateAttendanceRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UpdateAttendanceRequest;
+  static deserializeBinaryFromReader(message: UpdateAttendanceRequest, reader: jspb.BinaryReader): UpdateAttendanceRequest;
+}
+
+export namespace UpdateAttendanceRequest {
+  export type AsObject = {
+    guestid: string,
+    attendance: Attendance,
+  }
+}
+
+export class UpdateAttendanceResponse extends jspb.Message {
+  getMessage(): string;
+  setMessage(value: string): UpdateAttendanceResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UpdateAttendanceResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UpdateAttendanceResponse): UpdateAttendanceResponse.AsObject;
+  static serializeBinaryToWriter(message: UpdateAttendanceResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UpdateAttendanceResponse;
+  static deserializeBinaryFromReader(message: UpdateAttendanceResponse, reader: jspb.BinaryReader): UpdateAttendanceResponse;
+}
+
+export namespace UpdateAttendanceResponse {
+  export type AsObject = {
+    message: string,
   }
 }
 

@@ -8,11 +8,8 @@ import (
 )
 
 type Config struct {
-	// PGHost     string
-	// PGDatabase string
-	// PGUser     string
-	// PGPassword string
-	Port int
+	PGConnString string
+	Port         int
 }
 
 func NewConfig() *Config {
@@ -22,11 +19,8 @@ func NewConfig() *Config {
 	}
 
 	return &Config{
-		// PGHost:     getEnv("PG_HOST"),
-		// PGDatabase: getEnv("PG_DATABASE"),
-		// PGUser:     getEnv("PG_USER"),
-		// PGPassword: getEnv("PG_PASSWORD"),
-		Port: port,
+		PGConnString: getEnv("PG_DB_CONN_STRING"),
+		Port:         port,
 	}
 }
 

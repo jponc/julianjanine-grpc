@@ -7,12 +7,19 @@ import (
 	"julianjanine/internal/apipb"
 )
 
-type ApiServer struct {
-	apipb.UnimplementedApiServer
+type Repository interface {
+	GetGuests(inviteCode string) ([]*apipb.Guest, error)
 }
 
-func NewApiServer() *ApiServer {
-	return &ApiServer{}
+type ApiServer struct {
+	apipb.UnimplementedApiServer
+	repository Repository
+}
+
+func NewApiServer(repository Repository) *ApiServer {
+	return &ApiServer{
+		repository: repository,
+	}
 }
 
 func (s *ApiServer) Hello(ctx context.Context, in *apipb.HelloRequest) (*apipb.HelloResponse, error) {
@@ -25,13 +32,12 @@ func (s *ApiServer) Healthcheck(ctx context.Context, in *apipb.HealthcheckReques
 }
 
 func (s *ApiServer) GetGuests(ctx context.Context, in *apipb.GetGuestsRequest) (*apipb.GetGuestsResponse, error) {
+	guests, err := s.repository.GetGuests(in.InviteCode)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get guests: %v", err)
+	}
+
 	return &apipb.GetGuestsResponse{
-		Guests: []*apipb.Guest{
-			{
-				Id:         "1",
-				Name:       "Julian",
-				Attendance: apipb.Attendance_ATTENDANCE_YES,
-			},
-		},
+		Guests: guests,
 	}, nil
 }

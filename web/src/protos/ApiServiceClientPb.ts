@@ -164,5 +164,48 @@ export class ApiClient {
     this.methodDescriptorGetGuests);
   }
 
+  methodDescriptorUpdateAttendance = new grpcWeb.MethodDescriptor(
+    '/apipb.Api/UpdateAttendance',
+    grpcWeb.MethodType.UNARY,
+    protos_api_pb.UpdateAttendanceRequest,
+    protos_api_pb.UpdateAttendanceResponse,
+    (request: protos_api_pb.UpdateAttendanceRequest) => {
+      return request.serializeBinary();
+    },
+    protos_api_pb.UpdateAttendanceResponse.deserializeBinary
+  );
+
+  updateAttendance(
+    request: protos_api_pb.UpdateAttendanceRequest,
+    metadata: grpcWeb.Metadata | null): Promise<protos_api_pb.UpdateAttendanceResponse>;
+
+  updateAttendance(
+    request: protos_api_pb.UpdateAttendanceRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: protos_api_pb.UpdateAttendanceResponse) => void): grpcWeb.ClientReadableStream<protos_api_pb.UpdateAttendanceResponse>;
+
+  updateAttendance(
+    request: protos_api_pb.UpdateAttendanceRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: protos_api_pb.UpdateAttendanceResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/apipb.Api/UpdateAttendance',
+        request,
+        metadata || {},
+        this.methodDescriptorUpdateAttendance,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/apipb.Api/UpdateAttendance',
+    request,
+    metadata || {},
+    this.methodDescriptorUpdateAttendance);
+  }
+
 }
 

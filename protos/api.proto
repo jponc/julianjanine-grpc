@@ -7,6 +7,7 @@ service Api {
   rpc Hello(HelloRequest) returns (HelloResponse) {};
   rpc Healthcheck(HealthcheckRequest) returns (HealthcheckResponse) {};
   rpc GetGuests(GetGuestsRequest) returns (GetGuestsResponse) {};
+  rpc UpdateAttendance(UpdateAttendanceRequest) returns (UpdateAttendanceResponse) {};
 }
 
 // Hello
@@ -25,9 +26,20 @@ message HealthcheckResponse {
 }
 
 // GetGuests
-message GetGuestsRequest {}
+message GetGuestsRequest {
+  string inviteCode = 1;
+}
 message GetGuestsResponse {
   repeated Guest guests = 1;
+}
+
+// UpdateAttendance
+message UpdateAttendanceRequest {
+  string guestId = 1;
+  Attendance attendance = 2;
+}
+message UpdateAttendanceResponse {
+  string message = 1;
 }
 
 // Types
