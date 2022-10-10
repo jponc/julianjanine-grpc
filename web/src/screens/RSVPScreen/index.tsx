@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Container } from "../../components/Container";
-import { HealthcheckRequest, HelloRequest } from "../../protos/api_pb";
+import { HealthcheckRequest } from "../../protos/api_pb";
 import { apiClient } from "../../services/api";
 
 export const RSVPScreen = () => {
