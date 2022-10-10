@@ -23,7 +23,7 @@
       var self = this;
       this.karlaGalleryTabs.on("click", self.changeActiveTab);
       this.karlaGalleryTabs.on("click", self.addGalleryFilter);
-      $(window).on("load", self.enablePreloader);
+      self.enablePreloader();
     } /* popup gallery */,
     enablePopupGallery: function () {
       $(".karla-popup-gallery").each(function () {
