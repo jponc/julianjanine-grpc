@@ -35,49 +35,6 @@ export class ApiClient {
     this.options_ = options;
   }
 
-  methodDescriptorHello = new grpcWeb.MethodDescriptor(
-    '/apipb.Api/Hello',
-    grpcWeb.MethodType.UNARY,
-    protos_api_pb.HelloRequest,
-    protos_api_pb.HelloResponse,
-    (request: protos_api_pb.HelloRequest) => {
-      return request.serializeBinary();
-    },
-    protos_api_pb.HelloResponse.deserializeBinary
-  );
-
-  hello(
-    request: protos_api_pb.HelloRequest,
-    metadata: grpcWeb.Metadata | null): Promise<protos_api_pb.HelloResponse>;
-
-  hello(
-    request: protos_api_pb.HelloRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.RpcError,
-               response: protos_api_pb.HelloResponse) => void): grpcWeb.ClientReadableStream<protos_api_pb.HelloResponse>;
-
-  hello(
-    request: protos_api_pb.HelloRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.RpcError,
-               response: protos_api_pb.HelloResponse) => void) {
-    if (callback !== undefined) {
-      return this.client_.rpcCall(
-        this.hostname_ +
-          '/apipb.Api/Hello',
-        request,
-        metadata || {},
-        this.methodDescriptorHello,
-        callback);
-    }
-    return this.client_.unaryCall(
-    this.hostname_ +
-      '/apipb.Api/Hello',
-    request,
-    metadata || {},
-    this.methodDescriptorHello);
-  }
-
   methodDescriptorHealthcheck = new grpcWeb.MethodDescriptor(
     '/apipb.Api/Healthcheck',
     grpcWeb.MethodType.UNARY,

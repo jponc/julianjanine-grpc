@@ -67,3 +67,29 @@ func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 
 	return guests, nil
 }
+
+func (r *Repository) UpdateAttendance(guestId string, attendance apipb.Attendance) error {
+	var status string
+
+	switch attendance {
+	case apipb.Attendance_ATTENDANCE_TENTATIVE:
+		status = "tentative"
+	case apipb.Attendance_ATTENDANCE_NO:
+		status = "no"
+	case apipb.Attendance_ATTENDANCE_YES:
+		status = "yes"
+	case apipb.Attendance_ATTENDANCE_PENDING:
+		status = "pending"
+	}
+
+	_, err := r.dbClient.Exec(`
+    UPDATE guests
+    SET status = $1
+    WHERE id = $2
+  `, status, guestId)
+	if err != nil {
+		return fmt.Errorf("failed to update guest attendance (%s, %s): %v", guestId, status, err)
+	}
+
+	return nil
+}

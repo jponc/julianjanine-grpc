@@ -9,6 +9,7 @@ import (
 
 type Repository interface {
 	GetGuests(inviteCode string) ([]*apipb.Guest, error)
+	UpdateAttendance(guestId string, attendance apipb.Attendance) error
 }
 
 type ApiServer struct {
@@ -39,5 +40,16 @@ func (s *ApiServer) GetGuests(ctx context.Context, in *apipb.GetGuestsRequest) (
 
 	return &apipb.GetGuestsResponse{
 		Guests: guests,
+	}, nil
+}
+
+func (s *ApiServer) UpdateAttendance(ctx context.Context, in *apipb.UpdateAttendanceRequest) (*apipb.UpdateAttendanceResponse, error) {
+	err := s.repository.UpdateAttendance(in.GuestId, in.Attendance)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get guests: %v", err)
+	}
+
+	return &apipb.UpdateAttendanceResponse{
+		Message: "Updated",
 	}, nil
 }

@@ -4,19 +4,9 @@ option go_package="./internal/apipb";
 package apipb;
 
 service Api {
-  rpc Hello(HelloRequest) returns (HelloResponse) {};
   rpc Healthcheck(HealthcheckRequest) returns (HealthcheckResponse) {};
   rpc GetGuests(GetGuestsRequest) returns (GetGuestsResponse) {};
   rpc UpdateAttendance(UpdateAttendanceRequest) returns (UpdateAttendanceResponse) {};
-}
-
-// Hello
-message HelloRequest {
-  string name = 1;
-}
-
-message HelloResponse {
-  string message = 1;
 }
 
 // Healtcheck

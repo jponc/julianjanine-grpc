@@ -22,7 +22,6 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ApiClient interface {
-	Hello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error)
 	Healthcheck(ctx context.Context, in *HealthcheckRequest, opts ...grpc.CallOption) (*HealthcheckResponse, error)
 	GetGuests(ctx context.Context, in *GetGuestsRequest, opts ...grpc.CallOption) (*GetGuestsResponse, error)
 	UpdateAttendance(ctx context.Context, in *UpdateAttendanceRequest, opts ...grpc.CallOption) (*UpdateAttendanceResponse, error)
@@ -34,15 +33,6 @@ type apiClient struct {
 
 func NewApiClient(cc grpc.ClientConnInterface) ApiClient {
 	return &apiClient{cc}
-}
-
-func (c *apiClient) Hello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloResponse, error) {
-	out := new(HelloResponse)
-	err := c.cc.Invoke(ctx, "/apipb.Api/Hello", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *apiClient) Healthcheck(ctx context.Context, in *HealthcheckRequest, opts ...grpc.CallOption) (*HealthcheckResponse, error) {
@@ -76,7 +66,6 @@ func (c *apiClient) UpdateAttendance(ctx context.Context, in *UpdateAttendanceRe
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility
 type ApiServer interface {
-	Hello(context.Context, *HelloRequest) (*HelloResponse, error)
 	Healthcheck(context.Context, *HealthcheckRequest) (*HealthcheckResponse, error)
 	GetGuests(context.Context, *GetGuestsRequest) (*GetGuestsResponse, error)
 	UpdateAttendance(context.Context, *UpdateAttendanceRequest) (*UpdateAttendanceResponse, error)
@@ -87,9 +76,6 @@ type ApiServer interface {
 type UnimplementedApiServer struct {
 }
 
-func (UnimplementedApiServer) Hello(context.Context, *HelloRequest) (*HelloResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Hello not implemented")
-}
 func (UnimplementedApiServer) Healthcheck(context.Context, *HealthcheckRequest) (*HealthcheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Healthcheck not implemented")
 }
@@ -110,24 +96,6 @@ type UnsafeApiServer interface {
 
 func RegisterApiServer(s grpc.ServiceRegistrar, srv ApiServer) {
 	s.RegisterService(&Api_ServiceDesc, srv)
-}
-
-func _Api_Hello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HelloRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ApiServer).Hello(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/apipb.Api/Hello",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApiServer).Hello(ctx, req.(*HelloRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _Api_Healthcheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -191,10 +159,6 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "apipb.Api",
 	HandlerType: (*ApiServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Hello",
-			Handler:    _Api_Hello_Handler,
-		},
 		{
 			MethodName: "Healthcheck",
 			Handler:    _Api_Healthcheck_Handler,
