@@ -52,6 +52,8 @@ func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 			attendance = apipb.Attendance_ATTENDANCE_NO
 		case "yes":
 			attendance = apipb.Attendance_ATTENDANCE_YES
+		case "pending":
+			attendance = apipb.Attendance_ATTENDANCE_PENDING
 		}
 
 		guest := &apipb.Guest{
