@@ -43,7 +43,7 @@ func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 			return nil, fmt.Errorf("failed to deserialise row: %v", err)
 		}
 
-		var attendance apipb.Attendance
+		attendance := apipb.Attendance_ATTENDANCE_PENDING
 
 		switch status {
 		case "tentative":
