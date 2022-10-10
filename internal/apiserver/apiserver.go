@@ -23,10 +23,6 @@ func NewApiServer(repository Repository) *ApiServer {
 	}
 }
 
-func (s *ApiServer) Hello(ctx context.Context, in *apipb.HelloRequest) (*apipb.HelloResponse, error) {
-	return &apipb.HelloResponse{Message: "Hello " + in.GetName()}, nil
-}
-
 func (s *ApiServer) Healthcheck(ctx context.Context, in *apipb.HealthcheckRequest) (*apipb.HealthcheckResponse, error) {
 	fmt.Printf("Healthcheck...\n")
 	return &apipb.HealthcheckResponse{Message: "OK"}, nil

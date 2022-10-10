@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Container } from "../../components/Container";
-import { HelloRequest } from "../../protos/api_pb";
+import { HealthcheckRequest, HelloRequest } from "../../protos/api_pb";
 import { apiClient } from "../../services/api";
 
 export const RSVPScreen = () => {
@@ -10,9 +10,8 @@ export const RSVPScreen = () => {
 
   useEffect(() => {
     (async () => {
-      const req = new HelloRequest();
-      req.setName("Julian");
-      const res = await apiClient.hello(req, {});
+      const req = new HealthcheckRequest();
+      const res = await apiClient.healthcheck(req, {});
 
       console.log(res.getMessage());
     })();
