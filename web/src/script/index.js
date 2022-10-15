@@ -61,26 +61,24 @@
       }
     } /* slider */,
     initSlider: function () {
-      var self = this;
-      /* homepage slider */
-      self.karlaHomepageSlider.slick({
-        infinite: true,
-        dots: true,
-        arrows: false,
-        autoplay: true,
-        speed: 2000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        responsive: [
+      $("#home").vegas({
+        slides: [
           {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              speed: 1000,
-            },
+            src: "images/1920x1330.jpg",
+          },
+          {
+            src: "images/1920x1330.jpg",
+          },
+          {
+            src: "images/1920x1330.jpg",
           },
         ],
+        overlay: true,
+        transition: "zoomOut",
+        animation: "kenburnsDown",
+        transitionDuration: 2000,
+        delay: 10000,
+        animationDuration: 20000,
       });
     } /* ======= toTop ======= */,
     totopButton: function () {

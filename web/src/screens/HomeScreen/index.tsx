@@ -8,26 +8,20 @@ export const HomeScreen = () => {
 
   return (
     <Container screen="Home">
-      <div className="karla-homepage-slider">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="karla-slider">
-              <div className="karla-slider-item">
-                {" "}
-                <img
-                  className="karla-slider-img"
-                  src="images/1920x1330.jpg"
-                  alt=""
-                />
-                <div className="karla-slider-caption">
-                  <div className="karla-slider-title">Julian & Janine</div>
-                  <div className="karla-slider-subtitle">May 20, 2023</div>
+      <aside className="hero-section" id="home">
+        <div className="container hero-inner h-100">
+          <div className="v-middle">
+            <div className="row h-100">
+              <div className="col-md-12 text-center">
+                <div className="text-inner">
+                  <div className="hero-title">Caroline Karla</div>
+                  <p className="hero-subtitle">Wedding Photographer</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </aside>
 
       <div className="section-padding">
         <div className="container">

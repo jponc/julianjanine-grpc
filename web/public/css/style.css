@@ -10,7 +10,7 @@
 08. Sidebar style
 09. Content style
 10. Navigation style
-11. Homepage slider style
+11. Kenburns slideshow style
 12. About style
 13. Clients style
 14. Testimonials style
@@ -1025,41 +1025,37 @@ body.offcanvas .ckarla-nav-toggle {
   }
 }
 
-/* ======= Homepage slider ======= */
-.karla-homepage-slider {
+/* ===== Kenburns slideshow styles ===== */
+.hero-section {
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   overflow: hidden;
-}
-.karla-slider-item {
+  min-height: 100vh;
   position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
-.karla-homepage-slider .karla-slider-item {
-  margin-left: 5px;
-}
-.karla-slider-item:focus {
-  outline: none;
-}
-.karla-slider-caption {
+.hero-section::after {
+  content: "";
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-align: center;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: opacity 0.2s ease-out;
-  transition: opacity 0.2s ease-out;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  z-index: -5;
+  background: #fff;
 }
-.karla-slider-item:hover .karla-slider-caption {
-  opacity: 1;
+.hero-inner {
+  position: relative;
+  z-index: 15;
 }
-.karla-slider-title {
+.hero-inner .hero-title {
   font-family: "Paris Script";
   font-weight: 400;
   font-style: normal;
@@ -1068,57 +1064,39 @@ body.offcanvas .ckarla-nav-toggle {
   line-height: 1.5em;
   margin-bottom: 0px;
 }
-.karla-slider-subtitle {
+.hero-inner .hero-toptitle {
+  font-family: "Old Standard TT", serif;
   color: #fff;
+  font-size: 50px;
+  margin-bottom: 0;
+  line-height: 1.5em;
+  text-align: center;
+}
+.hero-inner .hero-subtitle {
   text-transform: uppercase;
-  letter-spacing: 0.25em;
-  font-size: 14px;
+  letter-spacing: 4px;
+  font-size: 12px;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
-  margin-top: 15px;
-  padding: 0 20px;
+  color: #fff;
+  margin-bottom: 0;
 }
-.karla-slider-container {
-  padding: 0;
+#home .vegas-overlay {
 }
-/* slider arrows */
-.karla-homepage-slider .slick-slider .slick-prev:before,
-.karla-homepage-slider .slick-slider .slick-next:before {
-  color: #000;
+#home .hero-inner .row {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
-/* slider items gutter & height */
-.karla-homepage-slider .slick-slide {
-  margin: 0 5px;
+.hero-inner .text-inner {
+  position: relative;
 }
-.karla-homepage-slider .slick-list {
-  margin: 0 -5px;
-}
-@media (min-width: 768px) {
-  .karla-homepage-slider .slick-slider .slick-next {
-    right: -3%;
+@media only screen and (max-width: 768px) {
+  .hero-inner .hero-title {
+    font-size: 30px;
   }
-  .karla-homepage-slider .slick-slider .slick-prev {
-    left: -3%;
-  }
-}
-
-@media (max-width: 768px) {
-  .karla-slider-title {
-    font-size: 20px;
-  }
-  .karla-slider-subtitle {
-    font-size: 10px;
-  }
-
-  .slick-dots {
-    bottom: -30px;
-  }
-}
-
-@media (max-width: 991px) {
-  .karla-slider-item {
-    height: 100%;
-    margin-bottom: 10px;
+  .hero-inner .hero-subtitle {
+    font-size: 8px;
   }
 }
 
