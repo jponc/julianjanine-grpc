@@ -25,6 +25,7 @@ type ApiClient interface {
 	Healthcheck(ctx context.Context, in *HealthcheckRequest, opts ...grpc.CallOption) (*HealthcheckResponse, error)
 	GetGuests(ctx context.Context, in *GetGuestsRequest, opts ...grpc.CallOption) (*GetGuestsResponse, error)
 	UpdateAttendance(ctx context.Context, in *UpdateAttendanceRequest, opts ...grpc.CallOption) (*UpdateAttendanceResponse, error)
+	SendInquiry(ctx context.Context, in *SendInquiryRequest, opts ...grpc.CallOption) (*SendInquiryResponse, error)
 }
 
 type apiClient struct {
@@ -62,6 +63,15 @@ func (c *apiClient) UpdateAttendance(ctx context.Context, in *UpdateAttendanceRe
 	return out, nil
 }
 
+func (c *apiClient) SendInquiry(ctx context.Context, in *SendInquiryRequest, opts ...grpc.CallOption) (*SendInquiryResponse, error) {
+	out := new(SendInquiryResponse)
+	err := c.cc.Invoke(ctx, "/apipb.Api/SendInquiry", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility
@@ -69,6 +79,7 @@ type ApiServer interface {
 	Healthcheck(context.Context, *HealthcheckRequest) (*HealthcheckResponse, error)
 	GetGuests(context.Context, *GetGuestsRequest) (*GetGuestsResponse, error)
 	UpdateAttendance(context.Context, *UpdateAttendanceRequest) (*UpdateAttendanceResponse, error)
+	SendInquiry(context.Context, *SendInquiryRequest) (*SendInquiryResponse, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -84,6 +95,9 @@ func (UnimplementedApiServer) GetGuests(context.Context, *GetGuestsRequest) (*Ge
 }
 func (UnimplementedApiServer) UpdateAttendance(context.Context, *UpdateAttendanceRequest) (*UpdateAttendanceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAttendance not implemented")
+}
+func (UnimplementedApiServer) SendInquiry(context.Context, *SendInquiryRequest) (*SendInquiryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendInquiry not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 
@@ -152,6 +166,24 @@ func _Api_UpdateAttendance_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_SendInquiry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendInquiryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).SendInquiry(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/apipb.Api/SendInquiry",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).SendInquiry(ctx, req.(*SendInquiryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -170,6 +202,10 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateAttendance",
 			Handler:    _Api_UpdateAttendance_Handler,
+		},
+		{
+			MethodName: "SendInquiry",
+			Handler:    _Api_SendInquiry_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -10,7 +10,7 @@ function App() {
       <Route path="/" element={<HomeScreen />} />
       <Route path="/schedule" element={<ScheduleScreen />} />
       <Route path="/faqs" element={<FAQsScreen />} />
-      <Route path="/rsvp/:id" element={<RSVPScreen />} />
+      <Route path="/rsvp/:code" element={<RSVPScreen />} />
       <Route path="/rsvp" element={<RSVPScreen />} />
     </Routes>
   );

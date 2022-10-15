@@ -164,5 +164,48 @@ export class ApiClient {
     this.methodDescriptorUpdateAttendance);
   }
 
+  methodDescriptorSendInquiry = new grpcWeb.MethodDescriptor(
+    '/apipb.Api/SendInquiry',
+    grpcWeb.MethodType.UNARY,
+    protos_api_pb.SendInquiryRequest,
+    protos_api_pb.SendInquiryResponse,
+    (request: protos_api_pb.SendInquiryRequest) => {
+      return request.serializeBinary();
+    },
+    protos_api_pb.SendInquiryResponse.deserializeBinary
+  );
+
+  sendInquiry(
+    request: protos_api_pb.SendInquiryRequest,
+    metadata: grpcWeb.Metadata | null): Promise<protos_api_pb.SendInquiryResponse>;
+
+  sendInquiry(
+    request: protos_api_pb.SendInquiryRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: protos_api_pb.SendInquiryResponse) => void): grpcWeb.ClientReadableStream<protos_api_pb.SendInquiryResponse>;
+
+  sendInquiry(
+    request: protos_api_pb.SendInquiryRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: protos_api_pb.SendInquiryResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/apipb.Api/SendInquiry',
+        request,
+        metadata || {},
+        this.methodDescriptorSendInquiry,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/apipb.Api/SendInquiry',
+    request,
+    metadata || {},
+    this.methodDescriptorSendInquiry);
+  }
+
 }
 

@@ -35,8 +35,8 @@ export namespace HealthcheckResponse {
 }
 
 export class GetGuestsRequest extends jspb.Message {
-  getInvitecode(): string;
-  setInvitecode(value: string): GetGuestsRequest;
+  getInviteCode(): string;
+  setInviteCode(value: string): GetGuestsRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetGuestsRequest.AsObject;
@@ -48,7 +48,7 @@ export class GetGuestsRequest extends jspb.Message {
 
 export namespace GetGuestsRequest {
   export type AsObject = {
-    invitecode: string,
+    inviteCode: string,
   }
 }
 
@@ -73,8 +73,8 @@ export namespace GetGuestsResponse {
 }
 
 export class UpdateAttendanceRequest extends jspb.Message {
-  getGuestid(): string;
-  setGuestid(value: string): UpdateAttendanceRequest;
+  getGuestId(): string;
+  setGuestId(value: string): UpdateAttendanceRequest;
 
   getAttendance(): Attendance;
   setAttendance(value: Attendance): UpdateAttendanceRequest;
@@ -89,7 +89,7 @@ export class UpdateAttendanceRequest extends jspb.Message {
 
 export namespace UpdateAttendanceRequest {
   export type AsObject = {
-    guestid: string,
+    guestId: string,
     attendance: Attendance,
   }
 }
@@ -109,6 +109,50 @@ export class UpdateAttendanceResponse extends jspb.Message {
 export namespace UpdateAttendanceResponse {
   export type AsObject = {
     message: string,
+  }
+}
+
+export class SendInquiryRequest extends jspb.Message {
+  getFullName(): string;
+  setFullName(value: string): SendInquiryRequest;
+
+  getEmail(): string;
+  setEmail(value: string): SendInquiryRequest;
+
+  getPhone(): string;
+  setPhone(value: string): SendInquiryRequest;
+
+  getMessage(): string;
+  setMessage(value: string): SendInquiryRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SendInquiryRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: SendInquiryRequest): SendInquiryRequest.AsObject;
+  static serializeBinaryToWriter(message: SendInquiryRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SendInquiryRequest;
+  static deserializeBinaryFromReader(message: SendInquiryRequest, reader: jspb.BinaryReader): SendInquiryRequest;
+}
+
+export namespace SendInquiryRequest {
+  export type AsObject = {
+    fullName: string,
+    email: string,
+    phone: string,
+    message: string,
+  }
+}
+
+export class SendInquiryResponse extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SendInquiryResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: SendInquiryResponse): SendInquiryResponse.AsObject;
+  static serializeBinaryToWriter(message: SendInquiryResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SendInquiryResponse;
+  static deserializeBinaryFromReader(message: SendInquiryResponse, reader: jspb.BinaryReader): SendInquiryResponse;
+}
+
+export namespace SendInquiryResponse {
+  export type AsObject = {
   }
 }
 
