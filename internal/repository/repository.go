@@ -5,6 +5,10 @@ import (
 	"fmt"
 
 	"julianjanine/internal/apipb"
+
+	log "github.com/sirupsen/logrus"
+
+	"github.com/google/uuid"
 )
 
 type Repository struct {
@@ -18,13 +22,11 @@ func NewRepository(dbClient *sql.DB) *Repository {
 }
 
 func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
-	query := fmt.Sprintf(`
+	rows, err := r.dbClient.Query(`
     SELECT id, name, invite_code, status
     FROM guests
-    WHERE invite_code = '%s'
+    WHERE LOWER(invite_code) = LOWER($1)
   `, inviteCode)
-
-	rows, err := r.dbClient.Query(query)
 	if err != nil {
 		return nil, fmt.Errorf("failed to query guests: %v", err)
 	}
@@ -91,5 +93,31 @@ func (r *Repository) UpdateAttendance(guestId string, attendance apipb.Attendanc
 		return fmt.Errorf("failed to update guest attendance (%s, %s): %v", guestId, status, err)
 	}
 
+	return nil
+}
+
+func (r *Repository) AddGuestIfMissing(inviteCode string, name string) error {
+	guests, err := r.GetGuests(inviteCode)
+	if err != nil {
+		return fmt.Errorf("failed to get guests: %v", err)
+	}
+
+	for _, guest := range guests {
+		if guest.GetName() == name {
+			return nil
+		}
+	}
+
+	id := uuid.New()
+
+	_, err = r.dbClient.Exec(`
+    INSERT INTO guests(id, name, invite_code, status)
+    VALUES ($1, $2, $3, $4)
+  `, id.String(), name, inviteCode, "pending")
+	if err != nil {
+		return fmt.Errorf("failed to insert a new guest (%s, %s): %v", inviteCode, name, err)
+	}
+
+	log.Infof("Successfully added (%s): %s", inviteCode, name)
 	return nil
 }

@@ -3,6 +3,8 @@ module julianjanine
 go 1.19
 
 require (
+	github.com/gocarina/gocsv v0.0.0-20220927221512-ad3251f9fa25
+	github.com/google/uuid v1.1.2
 	github.com/lib/pq v1.10.7
 	github.com/sirupsen/logrus v1.9.0
 	google.golang.org/grpc v1.50.0
