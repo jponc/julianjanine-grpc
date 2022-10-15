@@ -5,6 +5,8 @@ import (
 	"fmt"
 
 	"julianjanine/internal/apipb"
+
+	log "github.com/sirupsen/logrus"
 )
 
 type Repository interface {
@@ -40,6 +42,8 @@ func (s *ApiServer) GetGuests(ctx context.Context, in *apipb.GetGuestsRequest) (
 }
 
 func (s *ApiServer) UpdateAttendance(ctx context.Context, in *apipb.UpdateAttendanceRequest) (*apipb.UpdateAttendanceResponse, error) {
+	log.Infof("Updating attendance for guest (%s): %d", in.GuestId, in.Attendance)
+
 	err := s.repository.UpdateAttendance(in.GuestId, in.Attendance)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get guests: %v", err)
