@@ -11,7 +11,7 @@ export const FAQsScreen = () => {
       <div
         className="ready banner-padding bg-img"
         data-overlay-light="0"
-        data-background="images/1920x1080.jpg"
+        data-background="https://ik.imagekit.io/jponc/julianjanine/faq.jpg"
       >
         <div className="container">
           <div className="row">
@@ -34,7 +34,10 @@ export const FAQsScreen = () => {
           <div className="row">
             <div className="col-md-5">
               <div className="karla-about-img mb-30">
-                <img src="images/610x890.jpg" alt="" />
+                <img
+                  src="https://ik.imagekit.io/jponc/julianjanine/DSC09740.jpg?tr=w-1080"
+                  alt=""
+                />
               </div>
             </div>
 

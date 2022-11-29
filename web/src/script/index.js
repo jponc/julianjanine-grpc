@@ -64,13 +64,13 @@
       $("#home").vegas({
         slides: [
           {
-            src: "images/1920x1330.jpg",
+            src: "https://ik.imagekit.io/jponc/julianjanine/DSC09212.jpg?tr=w-2000",
           },
           {
-            src: "images/1920x1330.jpg",
+            src: "https://ik.imagekit.io/jponc/julianjanine/DSC09261.jpg?tr=w-2000",
           },
           {
-            src: "images/1920x1330.jpg",
+            src: "https://ik.imagekit.io/jponc/julianjanine/DSC09334.jpg?tr=w-2000",
           },
         ],
         overlay: true,

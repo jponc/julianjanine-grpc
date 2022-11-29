@@ -14,8 +14,8 @@ export const HomeScreen = () => {
             <div className="row h-100">
               <div className="col-md-12 text-center">
                 <div className="text-inner">
-                  <div className="hero-title">Caroline Karla</div>
-                  <p className="hero-subtitle">Wedding Photographer</p>
+                  <div className="hero-title">Julian & Janine</div>
+                  <p className="hero-subtitle">May 20, 2023</p>
                 </div>
               </div>
             </div>
@@ -53,7 +53,10 @@ export const HomeScreen = () => {
               <div className="karla-about-img">
                 <div className="img mb-30">
                   {" "}
-                  <img src="images/600x450.jpg" alt="" />{" "}
+                  <img
+                    src="https://ik.imagekit.io/jponc/julianjanine/DSC09369.jpg?tr=w-1080"
+                    alt=""
+                  />{" "}
                 </div>
               </div>
             </div>
@@ -64,31 +67,14 @@ export const HomeScreen = () => {
       <div className="section-padding recent-weddings bg-gray">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 text-center mb-30">
-              <span className="heading-meta">Portfolio</span>
-              <h2 className="pwe-heading">Recent Weddings</h2>
-              <hr className="line line-hr-center" />
-            </div>
-          </div>
-          <div className="row">
             <div className="col-md-4">
               <div className="item">
                 <div className="recent-weddings-img">
                   {" "}
-                  <img src="images/610x890.jpg" alt="" />{" "}
-                </div>
-                <div className="content">
-                  <h5>
-                    <a href="post.html">
-                      Wedding in Barcelona
-                      <br />
-                      Marine & Kevin
-                    </a>
-                  </h5>
-                  <p>
-                    Mauris suscipit enec est aliqua a tincidunt eroculis. Proin
-                    suscipit risus eu ullamcorper faucibus...
-                  </p>
+                  <img
+                    src="https://ik.imagekit.io/jponc/julianjanine/DSC09450.jpg?tr=w-1080"
+                    alt=""
+                  />{" "}
                 </div>
               </div>
             </div>
@@ -96,20 +82,10 @@ export const HomeScreen = () => {
               <div className="item">
                 <div className="recent-weddings-img">
                   {" "}
-                  <img src="images/610x890.jpg" alt="" />{" "}
-                </div>
-                <div className="content">
-                  <h5>
-                    <a href="post.html">
-                      Olivia and Enrico
-                      <br />
-                      Wedding in Switzerland
-                    </a>
-                  </h5>
-                  <p>
-                    Mauris suscipit enec est aliqua a tincidunt eroculis. Proin
-                    suscipit risus eu ullamcorper faucibus...
-                  </p>
+                  <img
+                    src="https://ik.imagekit.io/jponc/julianjanine/DSC09454.jpg?tr=w-1080"
+                    alt=""
+                  />{" "}
                 </div>
               </div>
             </div>
@@ -117,20 +93,10 @@ export const HomeScreen = () => {
               <div className="item">
                 <div className="recent-weddings-img">
                   {" "}
-                  <img src="images/610x890.jpg" alt="" />{" "}
-                </div>
-                <div className="content">
-                  <h5>
-                    <a href="post.html">
-                      Wedding in France
-                      <br />
-                      Tammy & Matthew
-                    </a>
-                  </h5>
-                  <p>
-                    Mauris suscipit enec est aliqua a tincidunt eroculis. Proin
-                    suscipit risus eu ullamcorper faucibus...
-                  </p>
+                  <img
+                    src="https://ik.imagekit.io/jponc/julianjanine/DSC09417-2.jpg?tr=w-1080"
+                    alt=""
+                  />{" "}
                 </div>
               </div>
             </div>

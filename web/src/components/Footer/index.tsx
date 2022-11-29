@@ -8,7 +8,7 @@ export const Footer = () => {
           <div className="row">
             <div className="col-md-12">
               <p>
-                <small>&copy;2022 Made with love by Julian & Janine</small>
+                <small>&copy;2022 Made with ♥ by Julian & Janine</small>
               </p>
             </div>
           </div>
