@@ -1533,6 +1533,7 @@ body.offcanvas .ckarla-nav-toggle {
 .recent-weddings .item .recent-weddings-img {
   position: relative;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 .recent-weddings .item .recent-weddings-img:hover img {
   -webkit-transform: scale(1.1);

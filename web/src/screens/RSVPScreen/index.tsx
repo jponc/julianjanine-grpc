@@ -54,7 +54,7 @@ export const RSVPScreen = () => {
     <Container screen="RSVP">
       <div
         className="ready full-page-padding bg-img valign"
-        data-background="/images/1920x1080-no.jpg"
+        data-background="https://ik.imagekit.io/jponc/julianjanine/rsvp.jpg?tr=w-2000"
       >
         <div className="container">
           <div className="row">
