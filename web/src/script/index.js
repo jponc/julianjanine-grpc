@@ -304,26 +304,27 @@
   // Accordion
   $(".accordion").on("click", ".title", function () {
     const title = $(this);
+    const item = title.parent();
 
-    if (title.hasClass("active")) {
-      title.removeClass("active");
-      title.next().slideUp();
-    } else {
-      title.addClass("active");
-      title.next().slideDown();
-    }
-
-    $(".accordion-info").not($(this).next()).slideUp();
-  });
-
-  $(".accordion").on("click", ".item", function () {
-    const item = $(this);
     if (item.hasClass("active")) {
       item.removeClass("active");
+      title.next().slideUp();
     } else {
-      item.addClass("active").siblings().removeClass("active");
+      $(".item").removeClass("active");
+      item.addClass("active");
+      title.next().slideDown();
+      $(".accordion-info").not(title.next()).slideUp();
     }
   });
+
+  // $(".accordion").on("click", ".item", function () {
+  //   const item = $(this);
+  //   if (item.hasClass("active")) {
+  //     item.removeClass("active");
+  //   } else {
+  //     item.addClass("active").siblings().removeClass("active");
+  //   }
+  // });
   // Popup Video
   $(document).ready(function () {
     $(
