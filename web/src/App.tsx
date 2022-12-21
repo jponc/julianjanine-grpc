@@ -3,6 +3,7 @@ import { HomeScreen } from "./screens/HomeScreen";
 import { RSVPScreen } from "./screens/RSVPScreen";
 import { ScheduleScreen } from "./screens/ScheduleScreen";
 import { FAQsScreen } from "./screens/FAQsScreen";
+import type {} from "@mui/lab/themeAugmentation";
 
 function App() {
   return (

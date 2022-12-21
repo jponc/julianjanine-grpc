@@ -74,7 +74,7 @@ const faqs: FAQ[] = [
   {
     title: "Can I take photos and videos during the ceremony?",
     description:
-      "Our ceremony is unplugged and we aim to keep it solemn. Please keep your phones during the processional and ceremony. After we are announced as husband and wife, you're free to take a shot :) Plus, we have an amazing team of photographers and videographers to capture the moments. We promise to share it to you after the wedding!",
+      "Our ceremony is unplugged and we aim to keep it solemn. Please keep your phones during the processional and ceremony. After we are announced as husband and wife, you're free to take a shot and post it with a hashtag #JulianJanineSayIDo :) Plus, we have an amazing team of photographers and videographers to capture the moments. We promise to share it to you after the wedding!",
   },
 ];
 
