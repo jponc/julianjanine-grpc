@@ -303,11 +303,26 @@
   });
   // Accordion
   $(".accordion").on("click", ".title", function () {
-    $(this).next().slideDown();
+    const title = $(this);
+
+    if (title.hasClass("active")) {
+      title.removeClass("active");
+      title.next().slideUp();
+    } else {
+      title.addClass("active");
+      title.next().slideDown();
+    }
+
     $(".accordion-info").not($(this).next()).slideUp();
   });
+
   $(".accordion").on("click", ".item", function () {
-    $(this).addClass("active").siblings().removeClass("active");
+    const item = $(this);
+    if (item.hasClass("active")) {
+      item.removeClass("active");
+    } else {
+      item.addClass("active").siblings().removeClass("active");
+    }
   });
   // Popup Video
   $(document).ready(function () {
