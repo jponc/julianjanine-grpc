@@ -45,29 +45,53 @@ func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 			return nil, fmt.Errorf("failed to deserialise row: %v", err)
 		}
 
-		attendance := apipb.Attendance_ATTENDANCE_PENDING
-
-		switch status {
-		case "tentative":
-			attendance = apipb.Attendance_ATTENDANCE_TENTATIVE
-		case "no":
-			attendance = apipb.Attendance_ATTENDANCE_NO
-		case "yes":
-			attendance = apipb.Attendance_ATTENDANCE_YES
-		case "pending":
-			attendance = apipb.Attendance_ATTENDANCE_PENDING
-		}
+		attendance := statusToAttendance(status)
 
 		guest := &apipb.Guest{
 			Id:         id,
 			Name:       name,
 			Attendance: attendance,
+			InviteCode: inviteCode,
 		}
 
 		guests = append(guests, guest)
 	}
 
 	return guests, nil
+}
+
+func (r *Repository) GetGuestByName(name string) (*apipb.Guest, error) {
+	row := r.dbClient.QueryRow(`
+    SELECT id, name, invite_code, status
+    FROM guests
+    WHERE name = $1
+  `, name)
+
+	var id string
+	var queriedName string
+	var inviteCode string
+	var status string
+
+	err := row.Scan(&id, &queriedName, &inviteCode, &status)
+	// If no rows, don't return an error
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, nil
+		} else {
+			return nil, fmt.Errorf("failed to scan row: %w", err)
+		}
+	}
+
+	attendance := statusToAttendance(status)
+
+	guest := &apipb.Guest{
+		Id:         id,
+		Name:       name,
+		Attendance: attendance,
+		InviteCode: inviteCode,
+	}
+
+	return guest, nil
 }
 
 func (r *Repository) UpdateAttendance(guestId string, attendance apipb.Attendance) error {
@@ -115,9 +139,26 @@ func (r *Repository) AddGuestIfMissing(inviteCode string, name string) error {
     VALUES ($1, $2, $3, $4)
   `, id.String(), name, inviteCode, "pending")
 	if err != nil {
-		return fmt.Errorf("failed to insert a new guest (%s, %s): %v", inviteCode, name, err)
+		return fmt.Errorf("failed to insert a new guest (%s, %s, %s): %v", id.String(), inviteCode, name, err)
 	}
 
 	log.Infof("Successfully added (%s): %s", inviteCode, name)
 	return nil
+}
+
+func statusToAttendance(status string) apipb.Attendance {
+	attendance := apipb.Attendance_ATTENDANCE_PENDING
+
+	switch status {
+	case "tentative":
+		attendance = apipb.Attendance_ATTENDANCE_TENTATIVE
+	case "no":
+		attendance = apipb.Attendance_ATTENDANCE_NO
+	case "yes":
+		attendance = apipb.Attendance_ATTENDANCE_YES
+	case "pending":
+		attendance = apipb.Attendance_ATTENDANCE_PENDING
+	}
+
+	return attendance
 }

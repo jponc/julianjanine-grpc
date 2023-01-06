@@ -49,6 +49,7 @@ message Guest {
   string id = 1;
   string name = 2;
   Attendance attendance = 3;
+  string invite_code = 4;
 }
 
 message Invitation {

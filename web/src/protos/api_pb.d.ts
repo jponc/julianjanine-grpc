@@ -166,6 +166,9 @@ export class Guest extends jspb.Message {
   getAttendance(): Attendance;
   setAttendance(value: Attendance): Guest;
 
+  getInviteCode(): string;
+  setInviteCode(value: string): Guest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Guest.AsObject;
   static toObject(includeInstance: boolean, msg: Guest): Guest.AsObject;
@@ -179,6 +182,7 @@ export namespace Guest {
     id: string,
     name: string,
     attendance: Attendance,
+    inviteCode: string,
   }
 }
 

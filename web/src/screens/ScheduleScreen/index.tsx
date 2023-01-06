@@ -61,12 +61,19 @@ export const ScheduleScreen = () => {
           </TimelineSeparator>
           <TimelineContent sx={{ py: "12px", px: 2 }}>
             <Typography variant="h6" component="span">
-              Arrive at venue
+              Find Parking
             </Typography>
-            <Typography>
-              Just to give you some time to find parking and get into the
-              wedding ceremony venue.
-            </Typography>
+            <Typography>CBRIS Parking</Typography>
+            <Link href="https://goo.gl/maps/ooBiPHZ3pXKJymqy7" target="_blank">
+              Google Maps
+            </Link>{" "}
+            |{" "}
+            <Link
+              href="https://www.waze.com/en/live-map/directions/ph/ncr/manila/cbris-space-rental-parking?place=ChIJc4njX3PLlzMRqe5f_vWarPc"
+              target="_blank"
+            >
+              Waze
+            </Link>
           </TimelineContent>
         </TimelineItem>
 
@@ -90,11 +97,16 @@ export const ScheduleScreen = () => {
             <Typography variant="h6" component="span">
               Wedding Ceremony
             </Typography>
-            <Typography>
-              Our wedding ceremony will be conducted in The Manila Cathedral.
-            </Typography>
+            <Typography>The Manila Cathedral</Typography>
             <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
-              Google Maps Link
+              Google Maps
+            </Link>{" "}
+            |{" "}
+            <Link
+              href="https://www.waze.com/en/live-map/directions/manila-cathedral-basilica-of-the-immaculate-conception-cabildo-cor-beaterio?place=w.79298706.792790451.941134"
+              target="_blank"
+            >
+              Waze
             </Link>
           </TimelineContent>
         </TimelineItem>
@@ -106,7 +118,7 @@ export const ScheduleScreen = () => {
             variant="body2"
             color="text.secondary"
           >
-            4:30 pm
+            6:00 pm
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineConnector />
@@ -117,13 +129,120 @@ export const ScheduleScreen = () => {
           </TimelineSeparator>
           <TimelineContent sx={{ py: "12px", px: 2 }}>
             <Typography variant="h6" component="span">
-              Serve cocktails and
+              Serve cocktails and drinks
             </Typography>
-            <Typography>
-              Our wedding ceremony will be conducted in The Manila Cathedral.
-            </Typography>
+            <Typography>La Castellana, Manila</Typography>
             <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
-              Google Maps Link
+              Google Maps
+            </Link>{" "}
+            |{" "}
+            <Link
+              href="https://www.waze.com/en/live-map/directions/la-castellana-cabildo-manila?place=w.79298706.792790451.3962158"
+              target="_blank"
+            >
+              Waze
+            </Link>
+          </TimelineContent>
+        </TimelineItem>
+
+        <TimelineItem>
+          <TimelineOppositeContent
+            sx={{ m: "auto 0" }}
+            align="right"
+            variant="body2"
+            color="text.secondary"
+          >
+            7:00 pm
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineConnector />
+            <TimelineDot>
+              <ChurchIcon />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent sx={{ py: "12px", px: 2 }}>
+            <Typography variant="h6" component="span">
+              Dinner
+            </Typography>
+            <Typography>La Castellana, Manila</Typography>
+            <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
+              Google Maps
+            </Link>{" "}
+            |{" "}
+            <Link
+              href="https://www.waze.com/en/live-map/directions/la-castellana-cabildo-manila?place=w.79298706.792790451.3962158"
+              target="_blank"
+            >
+              Waze
+            </Link>
+          </TimelineContent>
+        </TimelineItem>
+
+        <TimelineItem>
+          <TimelineOppositeContent
+            sx={{ m: "auto 0" }}
+            align="right"
+            variant="body2"
+            color="text.secondary"
+          >
+            7:30 pm - 9:00 pm
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineConnector />
+            <TimelineDot>
+              <ChurchIcon />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent sx={{ py: "12px", px: 2 }}>
+            <Typography variant="h6" component="span">
+              Dinner
+            </Typography>
+            <Typography>La Castellana, Manila</Typography>
+            <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
+              Google Maps
+            </Link>{" "}
+            |{" "}
+            <Link
+              href="https://www.waze.com/en/live-map/directions/la-castellana-cabildo-manila?place=w.79298706.792790451.3962158"
+              target="_blank"
+            >
+              Waze
+            </Link>
+          </TimelineContent>
+        </TimelineItem>
+
+        <TimelineItem>
+          <TimelineOppositeContent
+            sx={{ m: "auto 0" }}
+            align="right"
+            variant="body2"
+            color="text.secondary"
+          >
+            9:00 pm - 11:00 pm
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineConnector />
+            <TimelineDot>
+              <ChurchIcon />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent sx={{ py: "12px", px: 2 }}>
+            <Typography variant="h6" component="span">
+              After-party
+            </Typography>
+            <Typography>La Castellana, Manila</Typography>
+            <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
+              Google Maps
+            </Link>{" "}
+            |{" "}
+            <Link
+              href="https://www.waze.com/en/live-map/directions/la-castellana-cabildo-manila?place=w.79298706.792790451.3962158"
+              target="_blank"
+            >
+              Waze
             </Link>
           </TimelineContent>
         </TimelineItem>

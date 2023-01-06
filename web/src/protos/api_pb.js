@@ -1402,7 +1402,8 @@ proto.apipb.Guest.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    attendance: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    attendance: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    inviteCode: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -1451,6 +1452,10 @@ proto.apipb.Guest.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {!proto.apipb.Attendance} */ (reader.readEnum());
       msg.setAttendance(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setInviteCode(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1498,6 +1503,13 @@ proto.apipb.Guest.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       3,
+      f
+    );
+  }
+  f = message.getInviteCode();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -1555,6 +1567,24 @@ proto.apipb.Guest.prototype.getAttendance = function() {
  */
 proto.apipb.Guest.prototype.setAttendance = function(value) {
   return jspb.Message.setProto3EnumField(this, 3, value);
+};
+
+
+/**
+ * optional string invite_code = 4;
+ * @return {string}
+ */
+proto.apipb.Guest.prototype.getInviteCode = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.apipb.Guest} returns this
+ */
+proto.apipb.Guest.prototype.setInviteCode = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
