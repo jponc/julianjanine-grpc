@@ -32,20 +32,13 @@ export const HomeScreen = () => {
               <h2>We're Julian & Janine</h2>
               <hr className="line line-hr-left" />
               <p>
-                A wedding, pre-wedding and fashion photographer based in central
-                Europe.
+                We cordially invite you to our wedding at the 20th of May, 2023
+                in Manila, Philippines. The wedding ceremony will be in Manila
+                Cathedral. The reception follows immediately in La Castellana.
               </p>
               <p>
-                Mauris porttitor magna vel ante luctus convallis. Nunc at tellus
-                erat. Donec et magni lectus. Aliquam egestas vel arcu id
-                maximus. Orci varius natoque penatibus et mate dis parturient
-                montes, nascetur ridiculus miss.
-              </p>
-              <p>
-                Quisque efficitur nisi nec tellus fringilla posuere. Sed ut
-                scelerisque tortor. Mauris maximus sollicitudin purus, sed
-                fringilla lorem auctor eget. Interdum et malesuada duruthemes
-                the miss a comp dresire ifames.
+                We are both excited and looking forward to spending our special
+                day with you. Hope to see you there!
               </p>
               <p className="signature">Julian & Janine</p>
             </div>

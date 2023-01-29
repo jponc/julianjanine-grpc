@@ -4,6 +4,7 @@ import { RSVPScreen } from "./screens/RSVPScreen";
 import { ScheduleScreen } from "./screens/ScheduleScreen";
 import { FAQsScreen } from "./screens/FAQsScreen";
 import type {} from "@mui/lab/themeAugmentation";
+import { DressCodeScreen } from "./screens/DressCodeScreen";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/faqs" element={<FAQsScreen />} />
       <Route path="/rsvp/:code" element={<RSVPScreen />} />
       <Route path="/rsvp" element={<RSVPScreen />} />
+      <Route path="/dress-code" element={<DressCodeScreen />} />
     </Routes>
   );
 }

@@ -12,6 +12,9 @@ import Link from "@mui/material/Link";
 
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import ChurchIcon from "@mui/icons-material/Church";
+import TapasIcon from "@mui/icons-material/Tapas";
+import DinnerDiningIcon from "@mui/icons-material/DinnerDining";
+import CelebrationIcon from "@mui/icons-material/Celebration";
 
 export const ScheduleScreen = () => {
   useEffect(() => {
@@ -23,7 +26,7 @@ export const ScheduleScreen = () => {
       <div
         className="ready banner-padding bg-img"
         data-overlay-light="0"
-        data-background="https://ik.imagekit.io/jponc/julianjanine/faq.jpg"
+        data-background="https://ik.imagekit.io/jponc/julianjanine/schedule.jpg"
       >
         <div className="container">
           <div className="row">
@@ -123,47 +126,13 @@ export const ScheduleScreen = () => {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot>
-              <ChurchIcon />
+              <TapasIcon />
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent sx={{ py: "12px", px: 2 }}>
             <Typography variant="h6" component="span">
-              Serve cocktails and drinks
-            </Typography>
-            <Typography>La Castellana, Manila</Typography>
-            <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
-              Google Maps
-            </Link>{" "}
-            |{" "}
-            <Link
-              href="https://www.waze.com/en/live-map/directions/la-castellana-cabildo-manila?place=w.79298706.792790451.3962158"
-              target="_blank"
-            >
-              Waze
-            </Link>
-          </TimelineContent>
-        </TimelineItem>
-
-        <TimelineItem>
-          <TimelineOppositeContent
-            sx={{ m: "auto 0" }}
-            align="right"
-            variant="body2"
-            color="text.secondary"
-          >
-            7:00 pm
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineConnector />
-            <TimelineDot>
-              <ChurchIcon />
-            </TimelineDot>
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: "12px", px: 2 }}>
-            <Typography variant="h6" component="span">
-              Dinner
+              Serve finger food and drinks
             </Typography>
             <Typography>La Castellana, Manila</Typography>
             <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
@@ -191,7 +160,7 @@ export const ScheduleScreen = () => {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot>
-              <ChurchIcon />
+              <DinnerDiningIcon />
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
@@ -225,7 +194,7 @@ export const ScheduleScreen = () => {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot>
-              <ChurchIcon />
+              <CelebrationIcon />
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>

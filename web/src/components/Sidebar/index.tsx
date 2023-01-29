@@ -12,7 +12,7 @@ export const Sidebar: React.FC<Props> = ({ active }) => (
     <aside id="ckarla-aside">
       <div className="ckarla-logo">
         <a href="index.html">
-          <img src="images/logo.png" className="logo-img" alt="" />
+          {/* <img src="images/logo.png" className="logo-img" alt="" /> */}
           <h2>
             Julian & Janine<span>May 20, 2023</span>
           </h2>
@@ -25,6 +25,9 @@ export const Sidebar: React.FC<Props> = ({ active }) => (
           </li>
           <li className={active === "Schedule" ? "active" : ""}>
             <a href="/schedule">Schedule</a>
+          </li>
+          <li className={active === "DressCode" ? "active" : ""}>
+            <a href="/dress-code">Dress Code</a>
           </li>
           <li className={active === "FAQs" ? "active" : ""}>
             <a href="/faqs">FAQs</a>

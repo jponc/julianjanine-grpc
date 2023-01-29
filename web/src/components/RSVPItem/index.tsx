@@ -34,7 +34,11 @@ export const RSVPItem: React.FC<Props> = ({ guest, onAttendanceChange }) => {
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
           {Object.values(Attendance)
-            .filter((a) => a !== Attendance.ATTENDANCE_PENDING)
+            .filter(
+              (a) =>
+                a !== Attendance.ATTENDANCE_PENDING &&
+                a !== Attendance.ATTENDANCE_TENTATIVE
+            )
             .map((a) => {
               return (
                 <div
