@@ -211,8 +211,6 @@ export class Guest extends jspb.Message {
 
   getDietaryRequirement(): string;
   setDietaryRequirement(value: string): Guest;
-  hasDietaryRequirement(): boolean;
-  clearDietaryRequirement(): Guest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Guest.AsObject;
@@ -228,12 +226,7 @@ export namespace Guest {
     name: string,
     attendance: Attendance,
     inviteCode: string,
-    dietaryRequirement?: string,
-  }
-
-  export enum DietaryRequirementCase { 
-    _DIETARY_REQUIREMENT_NOT_SET = 0,
-    DIETARY_REQUIREMENT = 5,
+    dietaryRequirement: string,
   }
 }
 

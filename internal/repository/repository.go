@@ -53,7 +53,7 @@ func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 			Name:               name,
 			Attendance:         attendance,
 			InviteCode:         inviteCode,
-			DietaryRequirement: &dietaryRequirement,
+			DietaryRequirement: dietaryRequirement,
 		}
 
 		guests = append(guests, guest)
@@ -92,7 +92,7 @@ func (r *Repository) GetGuestByName(name string) (*apipb.Guest, error) {
 		Name:               name,
 		Attendance:         attendance,
 		InviteCode:         inviteCode,
-		DietaryRequirement: &dietaryRequirement,
+		DietaryRequirement: dietaryRequirement,
 	}
 
 	return guest, nil

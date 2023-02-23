@@ -1852,8 +1852,8 @@ proto.apipb.Guest.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = /** @type {string} */ (jspb.Message.getField(message, 5));
-  if (f != null) {
+  f = message.getDietaryRequirement();
+  if (f.length > 0) {
     writer.writeString(
       5,
       f
@@ -1948,25 +1948,7 @@ proto.apipb.Guest.prototype.getDietaryRequirement = function() {
  * @return {!proto.apipb.Guest} returns this
  */
 proto.apipb.Guest.prototype.setDietaryRequirement = function(value) {
-  return jspb.Message.setField(this, 5, value);
-};
-
-
-/**
- * Clears the field making it undefined.
- * @return {!proto.apipb.Guest} returns this
- */
-proto.apipb.Guest.prototype.clearDietaryRequirement = function() {
-  return jspb.Message.setField(this, 5, undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.apipb.Guest.prototype.hasDietaryRequirement = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 

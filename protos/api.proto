@@ -59,7 +59,7 @@ message Guest {
   string name = 2;
   Attendance attendance = 3;
   string invite_code = 4;
-  optional string dietary_requirement = 5;
+  string dietary_requirement = 5;
 }
 
 message Invitation {
