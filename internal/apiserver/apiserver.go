@@ -12,6 +12,7 @@ import (
 type Repository interface {
 	GetGuests(inviteCode string) ([]*apipb.Guest, error)
 	UpdateAttendance(guestId string, attendance apipb.Attendance) error
+	UpdateDietaryRequirement(guestId string, dietaryRequirement string) error
 }
 
 type ApiServer struct {
@@ -46,10 +47,23 @@ func (s *ApiServer) UpdateAttendance(ctx context.Context, in *apipb.UpdateAttend
 
 	err := s.repository.UpdateAttendance(in.GuestId, in.Attendance)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get guests: %v", err)
+		return nil, fmt.Errorf("failed to update attendance: %v", err)
 	}
 
 	return &apipb.UpdateAttendanceResponse{
-		Message: "Updated",
+		Message: "Updated Attendance",
+	}, nil
+}
+
+func (s *ApiServer) UpdateDietaryRequirement(ctx context.Context, in *apipb.UpdateDietaryRequirementRequest) (*apipb.UpdateDietaryRequirementResponse, error) {
+	log.Infof("Updating dietary requirement for guest (%s): %d", in.GuestId, in.DietaryRequirement)
+
+	err := s.repository.UpdateDietaryRequirement(in.GuestId, in.DietaryRequirement)
+	if err != nil {
+		return nil, fmt.Errorf("failed to update dietary requirement: %v", err)
+	}
+
+	return &apipb.UpdateDietaryRequirementResponse{
+		Message: "Updated Dietary Requirement",
 	}, nil
 }

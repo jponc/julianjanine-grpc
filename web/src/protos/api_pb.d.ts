@@ -156,6 +156,46 @@ export namespace SendInquiryResponse {
   }
 }
 
+export class UpdateDietaryRequirementRequest extends jspb.Message {
+  getGuestId(): string;
+  setGuestId(value: string): UpdateDietaryRequirementRequest;
+
+  getDietaryRequirement(): string;
+  setDietaryRequirement(value: string): UpdateDietaryRequirementRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UpdateDietaryRequirementRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UpdateDietaryRequirementRequest): UpdateDietaryRequirementRequest.AsObject;
+  static serializeBinaryToWriter(message: UpdateDietaryRequirementRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UpdateDietaryRequirementRequest;
+  static deserializeBinaryFromReader(message: UpdateDietaryRequirementRequest, reader: jspb.BinaryReader): UpdateDietaryRequirementRequest;
+}
+
+export namespace UpdateDietaryRequirementRequest {
+  export type AsObject = {
+    guestId: string,
+    dietaryRequirement: string,
+  }
+}
+
+export class UpdateDietaryRequirementResponse extends jspb.Message {
+  getMessage(): string;
+  setMessage(value: string): UpdateDietaryRequirementResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): UpdateDietaryRequirementResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UpdateDietaryRequirementResponse): UpdateDietaryRequirementResponse.AsObject;
+  static serializeBinaryToWriter(message: UpdateDietaryRequirementResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UpdateDietaryRequirementResponse;
+  static deserializeBinaryFromReader(message: UpdateDietaryRequirementResponse, reader: jspb.BinaryReader): UpdateDietaryRequirementResponse;
+}
+
+export namespace UpdateDietaryRequirementResponse {
+  export type AsObject = {
+    message: string,
+  }
+}
+
 export class Guest extends jspb.Message {
   getId(): string;
   setId(value: string): Guest;
@@ -168,6 +208,11 @@ export class Guest extends jspb.Message {
 
   getInviteCode(): string;
   setInviteCode(value: string): Guest;
+
+  getDietaryRequirement(): string;
+  setDietaryRequirement(value: string): Guest;
+  hasDietaryRequirement(): boolean;
+  clearDietaryRequirement(): Guest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Guest.AsObject;
@@ -183,6 +228,12 @@ export namespace Guest {
     name: string,
     attendance: Attendance,
     inviteCode: string,
+    dietaryRequirement?: string,
+  }
+
+  export enum DietaryRequirementCase { 
+    _DIETARY_REQUIREMENT_NOT_SET = 0,
+    DIETARY_REQUIREMENT = 5,
   }
 }
 

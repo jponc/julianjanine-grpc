@@ -39,26 +39,7 @@ export const Sidebar: React.FC<Props> = ({ active }) => (
       </nav>
       <div className="ckarla-footer">
         <ul>
-          <li>
-            <a href="#">
-              <i className="ti-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="ti-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="ti-instagram"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="ti-pinterest"></i>
-            </a>
-          </li>
+          <div style={{ color: "#a39f9f" }}>#JulianJanineSayIDo</div>
         </ul>
       </div>
     </aside>

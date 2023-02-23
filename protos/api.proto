@@ -7,7 +7,7 @@ service Api {
   rpc Healthcheck(HealthcheckRequest) returns (HealthcheckResponse) {};
   rpc GetGuests(GetGuestsRequest) returns (GetGuestsResponse) {};
   rpc UpdateAttendance(UpdateAttendanceRequest) returns (UpdateAttendanceResponse) {};
-  rpc SendInquiry(SendInquiryRequest) returns (SendInquiryResponse) {};
+  rpc UpdateDietaryRequirement(UpdateDietaryRequirementRequest) returns (UpdateDietaryRequirementResponse) {};
 }
 
 // Healtcheck
@@ -44,12 +44,22 @@ message SendInquiryRequest {
 message SendInquiryResponse {
 }
 
+// UpdateDietaryRequirement
+message UpdateDietaryRequirementRequest {
+  string guest_id = 1;
+  string dietary_requirement = 2;
+}
+message UpdateDietaryRequirementResponse {
+  string message = 1;
+}
+
 // Types
 message Guest {
   string id = 1;
   string name = 2;
   Attendance attendance = 3;
   string invite_code = 4;
+  optional string dietary_requirement = 5;
 }
 
 message Invitation {

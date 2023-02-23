@@ -45,7 +45,11 @@ export const ScheduleScreen = () => {
       </div>
       {/* 
 // @ts-ignore */}
-      <Timeline style={{ paddingTop: "50px" }} position="alternate">
+      <Timeline
+        style={{ paddingTop: "50px" }}
+        position="alternate"
+        className="schedule-timeline"
+      >
         <TimelineItem>
           <TimelineOppositeContent
             sx={{ m: "auto 0" }}
@@ -64,7 +68,7 @@ export const ScheduleScreen = () => {
           </TimelineSeparator>
           <TimelineContent sx={{ py: "12px", px: 2 }}>
             <Typography variant="h6" component="span">
-              Find Parking
+              Guest Parking
             </Typography>
             <Typography>CBRIS Parking</Typography>
             <Link href="https://goo.gl/maps/ooBiPHZ3pXKJymqy7" target="_blank">
@@ -98,7 +102,7 @@ export const ScheduleScreen = () => {
           </TimelineSeparator>
           <TimelineContent sx={{ py: "12px", px: 2 }}>
             <Typography variant="h6" component="span">
-              Wedding Ceremony
+              Ceremony
             </Typography>
             <Typography>The Manila Cathedral</Typography>
             <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
@@ -132,7 +136,7 @@ export const ScheduleScreen = () => {
           </TimelineSeparator>
           <TimelineContent sx={{ py: "12px", px: 2 }}>
             <Typography variant="h6" component="span">
-              Serve finger food and drinks
+              Cocktails
             </Typography>
             <Typography>La Castellana, Manila</Typography>
             <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
@@ -166,19 +170,9 @@ export const ScheduleScreen = () => {
           </TimelineSeparator>
           <TimelineContent sx={{ py: "12px", px: 2 }}>
             <Typography variant="h6" component="span">
-              Dinner
+              Reception
             </Typography>
             <Typography>La Castellana, Manila</Typography>
-            <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
-              Google Maps
-            </Link>{" "}
-            |{" "}
-            <Link
-              href="https://www.waze.com/en/live-map/directions/la-castellana-cabildo-manila?place=w.79298706.792790451.3962158"
-              target="_blank"
-            >
-              Waze
-            </Link>
           </TimelineContent>
         </TimelineItem>
 
@@ -203,16 +197,6 @@ export const ScheduleScreen = () => {
               After-party
             </Typography>
             <Typography>La Castellana, Manila</Typography>
-            <Link href="https://goo.gl/maps/L19S8B6wSKFgrgK67" target="_blank">
-              Google Maps
-            </Link>{" "}
-            |{" "}
-            <Link
-              href="https://www.waze.com/en/live-map/directions/la-castellana-cabildo-manila?place=w.79298706.792790451.3962158"
-              target="_blank"
-            >
-              Waze
-            </Link>
           </TimelineContent>
         </TimelineItem>
       </Timeline>

@@ -164,47 +164,47 @@ export class ApiClient {
     this.methodDescriptorUpdateAttendance);
   }
 
-  methodDescriptorSendInquiry = new grpcWeb.MethodDescriptor(
-    '/apipb.Api/SendInquiry',
+  methodDescriptorUpdateDietaryRequirement = new grpcWeb.MethodDescriptor(
+    '/apipb.Api/UpdateDietaryRequirement',
     grpcWeb.MethodType.UNARY,
-    protos_api_pb.SendInquiryRequest,
-    protos_api_pb.SendInquiryResponse,
-    (request: protos_api_pb.SendInquiryRequest) => {
+    protos_api_pb.UpdateDietaryRequirementRequest,
+    protos_api_pb.UpdateDietaryRequirementResponse,
+    (request: protos_api_pb.UpdateDietaryRequirementRequest) => {
       return request.serializeBinary();
     },
-    protos_api_pb.SendInquiryResponse.deserializeBinary
+    protos_api_pb.UpdateDietaryRequirementResponse.deserializeBinary
   );
 
-  sendInquiry(
-    request: protos_api_pb.SendInquiryRequest,
-    metadata: grpcWeb.Metadata | null): Promise<protos_api_pb.SendInquiryResponse>;
+  updateDietaryRequirement(
+    request: protos_api_pb.UpdateDietaryRequirementRequest,
+    metadata: grpcWeb.Metadata | null): Promise<protos_api_pb.UpdateDietaryRequirementResponse>;
 
-  sendInquiry(
-    request: protos_api_pb.SendInquiryRequest,
+  updateDietaryRequirement(
+    request: protos_api_pb.UpdateDietaryRequirementRequest,
     metadata: grpcWeb.Metadata | null,
     callback: (err: grpcWeb.RpcError,
-               response: protos_api_pb.SendInquiryResponse) => void): grpcWeb.ClientReadableStream<protos_api_pb.SendInquiryResponse>;
+               response: protos_api_pb.UpdateDietaryRequirementResponse) => void): grpcWeb.ClientReadableStream<protos_api_pb.UpdateDietaryRequirementResponse>;
 
-  sendInquiry(
-    request: protos_api_pb.SendInquiryRequest,
+  updateDietaryRequirement(
+    request: protos_api_pb.UpdateDietaryRequirementRequest,
     metadata: grpcWeb.Metadata | null,
     callback?: (err: grpcWeb.RpcError,
-               response: protos_api_pb.SendInquiryResponse) => void) {
+               response: protos_api_pb.UpdateDietaryRequirementResponse) => void) {
     if (callback !== undefined) {
       return this.client_.rpcCall(
         this.hostname_ +
-          '/apipb.Api/SendInquiry',
+          '/apipb.Api/UpdateDietaryRequirement',
         request,
         metadata || {},
-        this.methodDescriptorSendInquiry,
+        this.methodDescriptorUpdateDietaryRequirement,
         callback);
     }
     return this.client_.unaryCall(
     this.hostname_ +
-      '/apipb.Api/SendInquiry',
+      '/apipb.Api/UpdateDietaryRequirement',
     request,
     metadata || {},
-    this.methodDescriptorSendInquiry);
+    this.methodDescriptorUpdateDietaryRequirement);
   }
 
 }

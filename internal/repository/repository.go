@@ -23,7 +23,7 @@ func NewRepository(dbClient *sql.DB) *Repository {
 
 func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 	rows, err := r.dbClient.Query(`
-    SELECT id, name, invite_code, status
+    SELECT id, name, invite_code, status, dietary_requirement
     FROM guests
     WHERE LOWER(invite_code) = LOWER($1)
   `, inviteCode)
@@ -39,8 +39,9 @@ func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 		var name string
 		var inviteCode string
 		var status string
+		var dietaryRequirement string
 
-		err = rows.Scan(&id, &name, &inviteCode, &status)
+		err = rows.Scan(&id, &name, &inviteCode, &status, &dietaryRequirement)
 		if err != nil {
 			return nil, fmt.Errorf("failed to deserialise row: %v", err)
 		}
@@ -48,10 +49,11 @@ func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 		attendance := statusToAttendance(status)
 
 		guest := &apipb.Guest{
-			Id:         id,
-			Name:       name,
-			Attendance: attendance,
-			InviteCode: inviteCode,
+			Id:                 id,
+			Name:               name,
+			Attendance:         attendance,
+			InviteCode:         inviteCode,
+			DietaryRequirement: &dietaryRequirement,
 		}
 
 		guests = append(guests, guest)
@@ -62,7 +64,7 @@ func (r *Repository) GetGuests(inviteCode string) ([]*apipb.Guest, error) {
 
 func (r *Repository) GetGuestByName(name string) (*apipb.Guest, error) {
 	row := r.dbClient.QueryRow(`
-    SELECT id, name, invite_code, status
+    SELECT id, name, invite_code, status, dietary_requirement
     FROM guests
     WHERE name = $1
   `, name)
@@ -71,8 +73,9 @@ func (r *Repository) GetGuestByName(name string) (*apipb.Guest, error) {
 	var queriedName string
 	var inviteCode string
 	var status string
+	var dietaryRequirement string
 
-	err := row.Scan(&id, &queriedName, &inviteCode, &status)
+	err := row.Scan(&id, &queriedName, &inviteCode, &status, &dietaryRequirement)
 	// If no rows, don't return an error
 	if err != nil {
 		if err == sql.ErrNoRows {
@@ -85,10 +88,11 @@ func (r *Repository) GetGuestByName(name string) (*apipb.Guest, error) {
 	attendance := statusToAttendance(status)
 
 	guest := &apipb.Guest{
-		Id:         id,
-		Name:       name,
-		Attendance: attendance,
-		InviteCode: inviteCode,
+		Id:                 id,
+		Name:               name,
+		Attendance:         attendance,
+		InviteCode:         inviteCode,
+		DietaryRequirement: &dietaryRequirement,
 	}
 
 	return guest, nil
@@ -115,6 +119,19 @@ func (r *Repository) UpdateAttendance(guestId string, attendance apipb.Attendanc
   `, status, guestId)
 	if err != nil {
 		return fmt.Errorf("failed to update guest attendance (%s, %s): %v", guestId, status, err)
+	}
+
+	return nil
+}
+
+func (r *Repository) UpdateDietaryRequirement(guestId string, dietaryRequirement string) error {
+	_, err := r.dbClient.Exec(`
+    UPDATE guests
+    SET dietary_requirement = $1
+    WHERE id = $2
+  `, dietaryRequirement, guestId)
+	if err != nil {
+		return fmt.Errorf("failed to update guest dietary_requirement (%s, %s): %v", guestId, dietaryRequirement, err)
 	}
 
 	return nil

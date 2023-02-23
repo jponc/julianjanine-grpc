@@ -7,6 +7,7 @@ import {
   GetGuestsRequest,
   Guest,
   UpdateAttendanceRequest,
+  UpdateDietaryRequirementRequest,
 } from "../../protos/api_pb";
 import { apiClient } from "../../services/api";
 
@@ -29,8 +30,14 @@ export const RSVPScreen = () => {
       const req = new GetGuestsRequest();
       req.setInviteCode(code);
 
-      const res = await apiClient.getGuests(req, {});
-      setGuests(res.getGuestsList());
+      try {
+        const res = await apiClient.getGuests(req, {});
+        setGuests(res.getGuestsList());
+      } catch {
+        alert(
+          "Something went wrong. Please message Julian or Janine on Facebook Messenger."
+        );
+      }
     })();
   }, [code]);
 
@@ -43,7 +50,31 @@ export const RSVPScreen = () => {
     req.setGuestId(guestId);
     req.setAttendance(newAttendance);
 
-    await apiClient.updateAttendance(req, {});
+    try {
+      await apiClient.updateAttendance(req, {});
+    } catch {
+      alert(
+        "Something went wrong. Please message Julian or Janine on Facebook Messenger."
+      );
+    }
+  };
+
+  const handleOnDietaryRequirementChange = async (
+    guestId: string,
+    newDietaryRequirement: string
+  ) => {
+    const req = new UpdateDietaryRequirementRequest();
+
+    req.setGuestId(guestId);
+    req.setDietaryRequirement(newDietaryRequirement);
+
+    try {
+      await apiClient.updateDietaryRequirement(req, {});
+    } catch {
+      alert(
+        "Something went wrong. Please message Julian or Janine on Facebook Messenger."
+      );
+    }
   };
 
   const handleSubmit = () => {
@@ -72,6 +103,9 @@ export const RSVPScreen = () => {
                           <RSVPItem
                             guest={guest}
                             onAttendanceChange={handleOnAttendanceChange}
+                            onDietaryRequirementChange={
+                              handleOnDietaryRequirementChange
+                            }
                             key={guest.getId()}
                           />
                         ))}

@@ -25,7 +25,7 @@ type ApiClient interface {
 	Healthcheck(ctx context.Context, in *HealthcheckRequest, opts ...grpc.CallOption) (*HealthcheckResponse, error)
 	GetGuests(ctx context.Context, in *GetGuestsRequest, opts ...grpc.CallOption) (*GetGuestsResponse, error)
 	UpdateAttendance(ctx context.Context, in *UpdateAttendanceRequest, opts ...grpc.CallOption) (*UpdateAttendanceResponse, error)
-	SendInquiry(ctx context.Context, in *SendInquiryRequest, opts ...grpc.CallOption) (*SendInquiryResponse, error)
+	UpdateDietaryRequirement(ctx context.Context, in *UpdateDietaryRequirementRequest, opts ...grpc.CallOption) (*UpdateDietaryRequirementResponse, error)
 }
 
 type apiClient struct {
@@ -63,9 +63,9 @@ func (c *apiClient) UpdateAttendance(ctx context.Context, in *UpdateAttendanceRe
 	return out, nil
 }
 
-func (c *apiClient) SendInquiry(ctx context.Context, in *SendInquiryRequest, opts ...grpc.CallOption) (*SendInquiryResponse, error) {
-	out := new(SendInquiryResponse)
-	err := c.cc.Invoke(ctx, "/apipb.Api/SendInquiry", in, out, opts...)
+func (c *apiClient) UpdateDietaryRequirement(ctx context.Context, in *UpdateDietaryRequirementRequest, opts ...grpc.CallOption) (*UpdateDietaryRequirementResponse, error) {
+	out := new(UpdateDietaryRequirementResponse)
+	err := c.cc.Invoke(ctx, "/apipb.Api/UpdateDietaryRequirement", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ type ApiServer interface {
 	Healthcheck(context.Context, *HealthcheckRequest) (*HealthcheckResponse, error)
 	GetGuests(context.Context, *GetGuestsRequest) (*GetGuestsResponse, error)
 	UpdateAttendance(context.Context, *UpdateAttendanceRequest) (*UpdateAttendanceResponse, error)
-	SendInquiry(context.Context, *SendInquiryRequest) (*SendInquiryResponse, error)
+	UpdateDietaryRequirement(context.Context, *UpdateDietaryRequirementRequest) (*UpdateDietaryRequirementResponse, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -96,8 +96,8 @@ func (UnimplementedApiServer) GetGuests(context.Context, *GetGuestsRequest) (*Ge
 func (UnimplementedApiServer) UpdateAttendance(context.Context, *UpdateAttendanceRequest) (*UpdateAttendanceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAttendance not implemented")
 }
-func (UnimplementedApiServer) SendInquiry(context.Context, *SendInquiryRequest) (*SendInquiryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SendInquiry not implemented")
+func (UnimplementedApiServer) UpdateDietaryRequirement(context.Context, *UpdateDietaryRequirementRequest) (*UpdateDietaryRequirementResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateDietaryRequirement not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 
@@ -166,20 +166,20 @@ func _Api_UpdateAttendance_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Api_SendInquiry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendInquiryRequest)
+func _Api_UpdateDietaryRequirement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDietaryRequirementRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ApiServer).SendInquiry(ctx, in)
+		return srv.(ApiServer).UpdateDietaryRequirement(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/apipb.Api/SendInquiry",
+		FullMethod: "/apipb.Api/UpdateDietaryRequirement",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApiServer).SendInquiry(ctx, req.(*SendInquiryRequest))
+		return srv.(ApiServer).UpdateDietaryRequirement(ctx, req.(*UpdateDietaryRequirementRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -204,8 +204,8 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Api_UpdateAttendance_Handler,
 		},
 		{
-			MethodName: "SendInquiry",
-			Handler:    _Api_SendInquiry_Handler,
+			MethodName: "UpdateDietaryRequirement",
+			Handler:    _Api_UpdateDietaryRequirement_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
