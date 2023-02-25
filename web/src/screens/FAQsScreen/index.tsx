@@ -23,8 +23,7 @@ const faqs: FAQ[] = [
     title: "What should I wear? Is there a dress code?",
     description: (
       <div>
-        The dress code for our wedding is semi-formal attire. You may refer to
-        the{" "}
+        The dress code for our wedding is formal attire. You may refer to the{" "}
         <Link href="/dress-code" target="_blank">
           Dress Code
         </Link>{" "}

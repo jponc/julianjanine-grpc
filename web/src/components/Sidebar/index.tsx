@@ -29,14 +29,14 @@ export const Sidebar: React.FC<Props> = ({ active }) => (
           <li className={active === "DressCode" ? "active" : ""}>
             <a href="/dress-code">Dress Code</a>
           </li>
+          <li className={active === "Gifts" ? "active" : ""}>
+            <a href="/gifts">Gifts</a>
+          </li>
           <li className={active === "FAQs" ? "active" : ""}>
             <a href="/faqs">FAQs</a>
           </li>
           <li className={active === "RSVP" ? "active" : ""}>
             <a href="/rsvp">RSVP</a>
-          </li>
-          <li className={active === "IGFeed" ? "active" : ""}>
-            <a href="/ig-feed">Instagram Feed</a>
           </li>
         </ul>
       </nav>
