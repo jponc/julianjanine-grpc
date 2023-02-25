@@ -112,50 +112,6 @@ export namespace UpdateAttendanceResponse {
   }
 }
 
-export class SendInquiryRequest extends jspb.Message {
-  getFullName(): string;
-  setFullName(value: string): SendInquiryRequest;
-
-  getEmail(): string;
-  setEmail(value: string): SendInquiryRequest;
-
-  getPhone(): string;
-  setPhone(value: string): SendInquiryRequest;
-
-  getMessage(): string;
-  setMessage(value: string): SendInquiryRequest;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SendInquiryRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: SendInquiryRequest): SendInquiryRequest.AsObject;
-  static serializeBinaryToWriter(message: SendInquiryRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SendInquiryRequest;
-  static deserializeBinaryFromReader(message: SendInquiryRequest, reader: jspb.BinaryReader): SendInquiryRequest;
-}
-
-export namespace SendInquiryRequest {
-  export type AsObject = {
-    fullName: string,
-    email: string,
-    phone: string,
-    message: string,
-  }
-}
-
-export class SendInquiryResponse extends jspb.Message {
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SendInquiryResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: SendInquiryResponse): SendInquiryResponse.AsObject;
-  static serializeBinaryToWriter(message: SendInquiryResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SendInquiryResponse;
-  static deserializeBinaryFromReader(message: SendInquiryResponse, reader: jspb.BinaryReader): SendInquiryResponse;
-}
-
-export namespace SendInquiryResponse {
-  export type AsObject = {
-  }
-}
-
 export class UpdateDietaryRequirementRequest extends jspb.Message {
   getGuestId(): string;
   setGuestId(value: string): UpdateDietaryRequirementRequest;
@@ -193,6 +149,44 @@ export class UpdateDietaryRequirementResponse extends jspb.Message {
 export namespace UpdateDietaryRequirementResponse {
   export type AsObject = {
     message: string,
+  }
+}
+
+export class GetInstagramFeedRequest extends jspb.Message {
+  getHashtag(): string;
+  setHashtag(value: string): GetInstagramFeedRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetInstagramFeedRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetInstagramFeedRequest): GetInstagramFeedRequest.AsObject;
+  static serializeBinaryToWriter(message: GetInstagramFeedRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetInstagramFeedRequest;
+  static deserializeBinaryFromReader(message: GetInstagramFeedRequest, reader: jspb.BinaryReader): GetInstagramFeedRequest;
+}
+
+export namespace GetInstagramFeedRequest {
+  export type AsObject = {
+    hashtag: string,
+  }
+}
+
+export class GetInstagramFeedResponse extends jspb.Message {
+  getUrlsList(): Array<string>;
+  setUrlsList(value: Array<string>): GetInstagramFeedResponse;
+  clearUrlsList(): GetInstagramFeedResponse;
+  addUrls(value: string, index?: number): GetInstagramFeedResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetInstagramFeedResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetInstagramFeedResponse): GetInstagramFeedResponse.AsObject;
+  static serializeBinaryToWriter(message: GetInstagramFeedResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetInstagramFeedResponse;
+  static deserializeBinaryFromReader(message: GetInstagramFeedResponse, reader: jspb.BinaryReader): GetInstagramFeedResponse;
+}
+
+export namespace GetInstagramFeedResponse {
+  export type AsObject = {
+    urlsList: Array<string>,
   }
 }
 

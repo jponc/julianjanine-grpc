@@ -26,6 +26,7 @@ type ApiClient interface {
 	GetGuests(ctx context.Context, in *GetGuestsRequest, opts ...grpc.CallOption) (*GetGuestsResponse, error)
 	UpdateAttendance(ctx context.Context, in *UpdateAttendanceRequest, opts ...grpc.CallOption) (*UpdateAttendanceResponse, error)
 	UpdateDietaryRequirement(ctx context.Context, in *UpdateDietaryRequirementRequest, opts ...grpc.CallOption) (*UpdateDietaryRequirementResponse, error)
+	GetInstagramFeed(ctx context.Context, in *GetInstagramFeedRequest, opts ...grpc.CallOption) (*GetInstagramFeedResponse, error)
 }
 
 type apiClient struct {
@@ -72,6 +73,15 @@ func (c *apiClient) UpdateDietaryRequirement(ctx context.Context, in *UpdateDiet
 	return out, nil
 }
 
+func (c *apiClient) GetInstagramFeed(ctx context.Context, in *GetInstagramFeedRequest, opts ...grpc.CallOption) (*GetInstagramFeedResponse, error) {
+	out := new(GetInstagramFeedResponse)
+	err := c.cc.Invoke(ctx, "/apipb.Api/GetInstagramFeed", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiServer is the server API for Api service.
 // All implementations must embed UnimplementedApiServer
 // for forward compatibility
@@ -80,6 +90,7 @@ type ApiServer interface {
 	GetGuests(context.Context, *GetGuestsRequest) (*GetGuestsResponse, error)
 	UpdateAttendance(context.Context, *UpdateAttendanceRequest) (*UpdateAttendanceResponse, error)
 	UpdateDietaryRequirement(context.Context, *UpdateDietaryRequirementRequest) (*UpdateDietaryRequirementResponse, error)
+	GetInstagramFeed(context.Context, *GetInstagramFeedRequest) (*GetInstagramFeedResponse, error)
 	mustEmbedUnimplementedApiServer()
 }
 
@@ -98,6 +109,9 @@ func (UnimplementedApiServer) UpdateAttendance(context.Context, *UpdateAttendanc
 }
 func (UnimplementedApiServer) UpdateDietaryRequirement(context.Context, *UpdateDietaryRequirementRequest) (*UpdateDietaryRequirementResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateDietaryRequirement not implemented")
+}
+func (UnimplementedApiServer) GetInstagramFeed(context.Context, *GetInstagramFeedRequest) (*GetInstagramFeedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetInstagramFeed not implemented")
 }
 func (UnimplementedApiServer) mustEmbedUnimplementedApiServer() {}
 
@@ -184,6 +198,24 @@ func _Api_UpdateDietaryRequirement_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Api_GetInstagramFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstagramFeedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiServer).GetInstagramFeed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/apipb.Api/GetInstagramFeed",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiServer).GetInstagramFeed(ctx, req.(*GetInstagramFeedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Api_ServiceDesc is the grpc.ServiceDesc for Api service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -206,6 +238,10 @@ var Api_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateDietaryRequirement",
 			Handler:    _Api_UpdateDietaryRequirement_Handler,
+		},
+		{
+			MethodName: "GetInstagramFeed",
+			Handler:    _Api_GetInstagramFeed_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

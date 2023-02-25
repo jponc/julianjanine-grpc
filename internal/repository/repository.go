@@ -152,9 +152,9 @@ func (r *Repository) AddGuestIfMissing(inviteCode string, name string) error {
 	id := uuid.New()
 
 	_, err = r.dbClient.Exec(`
-    INSERT INTO guests(id, name, invite_code, status)
-    VALUES ($1, $2, $3, $4)
-  `, id.String(), name, inviteCode, "pending")
+    INSERT INTO guests(id, name, invite_code, status, dietary_requirement)
+    VALUES ($1, $2, $3, $4, $5)
+  `, id.String(), name, inviteCode, "pending", "")
 	if err != nil {
 		return fmt.Errorf("failed to insert a new guest (%s, %s, %s): %v", id.String(), inviteCode, name, err)
 	}

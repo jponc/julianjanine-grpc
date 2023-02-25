@@ -28,6 +28,16 @@ export const DressCodeScreen = () => {
           </div>
         </div>
       </div>
+      <div className="section-padding">
+        <div className="container dress-code-container">
+          <div className="row">
+            <div className="col-md-6 center">
+              <h3>Gentleman</h3>
+            </div>
+            <div className="col-md-6">Hers</div>
+          </div>
+        </div>
+      </div>
     </Container>
   );
 };

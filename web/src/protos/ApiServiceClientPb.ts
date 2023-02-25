@@ -207,5 +207,48 @@ export class ApiClient {
     this.methodDescriptorUpdateDietaryRequirement);
   }
 
+  methodDescriptorGetInstagramFeed = new grpcWeb.MethodDescriptor(
+    '/apipb.Api/GetInstagramFeed',
+    grpcWeb.MethodType.UNARY,
+    protos_api_pb.GetInstagramFeedRequest,
+    protos_api_pb.GetInstagramFeedResponse,
+    (request: protos_api_pb.GetInstagramFeedRequest) => {
+      return request.serializeBinary();
+    },
+    protos_api_pb.GetInstagramFeedResponse.deserializeBinary
+  );
+
+  getInstagramFeed(
+    request: protos_api_pb.GetInstagramFeedRequest,
+    metadata: grpcWeb.Metadata | null): Promise<protos_api_pb.GetInstagramFeedResponse>;
+
+  getInstagramFeed(
+    request: protos_api_pb.GetInstagramFeedRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback: (err: grpcWeb.RpcError,
+               response: protos_api_pb.GetInstagramFeedResponse) => void): grpcWeb.ClientReadableStream<protos_api_pb.GetInstagramFeedResponse>;
+
+  getInstagramFeed(
+    request: protos_api_pb.GetInstagramFeedRequest,
+    metadata: grpcWeb.Metadata | null,
+    callback?: (err: grpcWeb.RpcError,
+               response: protos_api_pb.GetInstagramFeedResponse) => void) {
+    if (callback !== undefined) {
+      return this.client_.rpcCall(
+        this.hostname_ +
+          '/apipb.Api/GetInstagramFeed',
+        request,
+        metadata || {},
+        this.methodDescriptorGetInstagramFeed,
+        callback);
+    }
+    return this.client_.unaryCall(
+    this.hostname_ +
+      '/apipb.Api/GetInstagramFeed',
+    request,
+    metadata || {},
+    this.methodDescriptorGetInstagramFeed);
+  }
+
 }
 

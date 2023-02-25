@@ -35,6 +35,9 @@ export const Sidebar: React.FC<Props> = ({ active }) => (
           <li className={active === "RSVP" ? "active" : ""}>
             <a href="/rsvp">RSVP</a>
           </li>
+          <li className={active === "IGFeed" ? "active" : ""}>
+            <a href="/ig-feed">Instagram Feed</a>
+          </li>
         </ul>
       </nav>
       <div className="ckarla-footer">

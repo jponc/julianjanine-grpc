@@ -8,6 +8,7 @@ service Api {
   rpc GetGuests(GetGuestsRequest) returns (GetGuestsResponse) {};
   rpc UpdateAttendance(UpdateAttendanceRequest) returns (UpdateAttendanceResponse) {};
   rpc UpdateDietaryRequirement(UpdateDietaryRequirementRequest) returns (UpdateDietaryRequirementResponse) {};
+  rpc GetInstagramFeed(GetInstagramFeedRequest) returns (GetInstagramFeedResponse) {};
 }
 
 // Healtcheck
@@ -33,17 +34,6 @@ message UpdateAttendanceResponse {
   string message = 1;
 }
 
-// SendInquiry
-message SendInquiryRequest {
-  string full_name = 1;
-  string email = 2;
-  string phone = 3;
-  string message = 4;
-}
-
-message SendInquiryResponse {
-}
-
 // UpdateDietaryRequirement
 message UpdateDietaryRequirementRequest {
   string guest_id = 1;
@@ -51,6 +41,14 @@ message UpdateDietaryRequirementRequest {
 }
 message UpdateDietaryRequirementResponse {
   string message = 1;
+}
+
+// GetInstagramFeed
+message GetInstagramFeedRequest {
+  string hashtag = 1;
+}
+message GetInstagramFeedResponse {
+  repeated string urls = 1;
 }
 
 // Types
