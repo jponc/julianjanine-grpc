@@ -26,7 +26,7 @@ export const ScheduleScreen = () => {
       <div
         className="ready banner-padding bg-img"
         data-overlay-light="0"
-        data-background="https://ik.imagekit.io/jponc/julianjanine/schedule.jpg"
+        data-background="https://ik.imagekit.io/jponc/julianjanine/schedule4.jpg?tr=w-1000"
       >
         <div className="container">
           <div className="row">

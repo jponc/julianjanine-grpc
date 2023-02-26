@@ -29,7 +29,7 @@ export const DressCodeScreen = () => {
           </div>
         </div>
       </div>
-      <div className="section-padding">
+      <div className="section-padding" style={{ padding: "50px 0" }}>
         <div className="container dress-code-container">
           <div className="row">
             <div className="col-md-12 center">
@@ -41,7 +41,8 @@ export const DressCodeScreen = () => {
               <div className="img mb-30">
                 {" "}
                 <img
-                  src="https://ik.imagekit.io/jponc/julianjanine/dress-code-attire.png?tr=w-150"
+                  style={{ maxWidth: "150px" }}
+                  src="https://ik.imagekit.io/jponc/julianjanine/dress-code-attire.png"
                   alt=""
                 />{" "}
               </div>
@@ -63,8 +64,8 @@ export const DressCodeScreen = () => {
               <Typography variant="h6">Don'ts</Typography>
               <Typography>White dress</Typography>
               <Typography>T-shirt</Typography>
-              <Typography>Jeans / Rubber shoes</Typography>
-              <Typography>Rubber shoes</Typography>
+              <Typography>Jeans</Typography>
+              <Typography>Rubber shoes / Flip flops</Typography>
             </div>
           </div>
           <div className="row">

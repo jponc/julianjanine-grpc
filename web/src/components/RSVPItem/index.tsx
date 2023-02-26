@@ -12,7 +12,7 @@ type Props = {
 
 const DIETARY_REQUIREMENTS = [
   "Gluten-free",
-  "Penuts allergy",
+  "Allergies",
   "Vegan",
   "Vegetarian",
   "None",

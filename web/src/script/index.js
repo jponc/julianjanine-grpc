@@ -116,6 +116,7 @@
   var burgerMenu = function () {
     $(".js-ckarla-nav-toggle").on("click", function (event) {
       event.preventDefault();
+      event.stopPropagation();
       var $this = $(this);
       if ($("body").hasClass("offcanvas")) {
         $this.removeClass("active");
@@ -136,12 +137,6 @@
           $("body").removeClass("offcanvas");
           $(".js-ckarla-nav-toggle").removeClass("active");
         }
-      }
-    });
-    $(window).scroll(function () {
-      if ($("body").hasClass("offcanvas")) {
-        $("body").removeClass("offcanvas");
-        $(".js-ckarla-nav-toggle").removeClass("active");
       }
     });
   };
