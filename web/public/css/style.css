@@ -624,6 +624,8 @@ hr {
   border: none;
   border-right: 1px solid #fbf9f9;
   scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
 }
 @media screen and (max-width: 1200px) {
   #ckarla-aside {
@@ -707,10 +709,12 @@ hr {
 }
 #ckarla-aside .ckarla-main-menu {
   margin-bottom: 60px;
+  flex-grow: 1;
 }
 @media screen and (max-width: 768px) {
   #ckarla-aside .ckarla-main-menu {
     margin-bottom: 30px;
+    flex-grow: 1;
   }
 }
 #ckarla-aside .ckarla-main-menu ul ul {
@@ -889,15 +893,6 @@ body.offcanvas #ckarla-aside {
   z-index: 999;
   position: fixed;
 }
-body.offcanvas #ckarla-main,
-body.offcanvas .ckarla-nav-toggle {
-  top: 0;
-  -moz-transform: translateX(270px);
-  -webkit-transform: translateX(270px);
-  -ms-transform: translateX(270px);
-  -o-transform: translateX(270px);
-  transform: translateX(270px);
-}
 
 /* ======= Content style ======= */
 #ckarla-main {
@@ -929,6 +924,9 @@ body.offcanvas .ckarla-nav-toggle {
 .ckarla-nav-toggle {
   cursor: pointer;
   text-decoration: none;
+}
+.ckarla-nav-toggle.active {
+  display: none;
 }
 .ckarla-nav-toggle.active i::before,
 .ckarla-nav-toggle.active i::after {

@@ -159,7 +159,7 @@ export const ScheduleScreen = () => {
             variant="body2"
             color="text.secondary"
           >
-            7:30 pm - 9:00 pm
+            7:30 pm
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineConnector />
@@ -183,7 +183,7 @@ export const ScheduleScreen = () => {
             variant="body2"
             color="text.secondary"
           >
-            9:00 pm - 11:00 pm
+            9:00 pm
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineConnector />

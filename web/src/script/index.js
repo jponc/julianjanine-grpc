@@ -139,6 +139,12 @@
         }
       }
     });
+    $(document).scroll(function () {
+      if ($("body").hasClass("offcanvas")) {
+        $("body").removeClass("offcanvas");
+        $(".js-ckarla-nav-toggle").removeClass("active");
+      }
+    });
   };
 
   // Sub Menu
