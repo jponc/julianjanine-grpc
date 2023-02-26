@@ -32,7 +32,10 @@ export const RSVPScreen = () => {
 
       try {
         const res = await apiClient.getGuests(req, {});
-        setGuests(res.getGuestsList());
+        const sortedGuests = res
+          .getGuestsList()
+          .sort((a, b) => (a.getName() < b.getName() ? -1 : 1));
+        setGuests(sortedGuests);
       } catch {
         alert(
           "Something went wrong. Please message Julian or Janine on Facebook Messenger."
