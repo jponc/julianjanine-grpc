@@ -12,7 +12,7 @@ export const EntourageScreen = () => {
       <div
         className="ready banner-padding bg-img"
         data-overlay-light="0"
-        data-background="https://ik.imagekit.io/jponc/julianjanine/dress-code1.jpg?tr=w-2000"
+        data-background="https://ik.imagekit.io/jponc/julianjanine/entourage.jpg?tr=w-2000"
       >
         <div className="container">
           <div className="row">
