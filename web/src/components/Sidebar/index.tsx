@@ -26,6 +26,9 @@ export const Sidebar: React.FC<Props> = ({ active }) => (
           <li className={active === "Schedule" ? "active" : ""}>
             <a href="/schedule">Schedule</a>
           </li>
+          <li className={active === "Entourage" ? "active" : ""}>
+            <a href="/entourage">Entourage</a>
+          </li>
           <li className={active === "DressCode" ? "active" : ""}>
             <a href="/dress-code">Dress Code</a>
           </li>

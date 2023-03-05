@@ -37,12 +37,6 @@ export const RSVPItem: React.FC<Props> = ({
   };
 
   const handleOnSelectDietaryRequirement = (newDietaryRequirement: string) => {
-    if (newDietaryRequirement === "None") {
-      setDietaryRequirement("");
-      onDietaryRequirementChange(guest.getId(), "");
-      return;
-    }
-
     setDietaryRequirement(newDietaryRequirement);
     onDietaryRequirementChange(guest.getId(), newDietaryRequirement);
   };

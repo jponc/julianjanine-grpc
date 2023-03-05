@@ -6,6 +6,7 @@ import { FAQsScreen } from "./screens/FAQsScreen";
 import type {} from "@mui/lab/themeAugmentation";
 import { DressCodeScreen } from "./screens/DressCodeScreen";
 import { GiftsScreen } from "./screens/GiftsScreen";
+import { EntourageScreen } from "./screens/EntourageScreen";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/rsvp" element={<RSVPScreen />} />
       <Route path="/dress-code" element={<DressCodeScreen />} />
       <Route path="/gifts" element={<GiftsScreen />} />
+      <Route path="/entourage" element={<EntourageScreen />} />
     </Routes>
   );
 }

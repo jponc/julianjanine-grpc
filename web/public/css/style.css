@@ -2514,3 +2514,41 @@ button:hover {
   border-radius: 50%;
   box-shadow: 5px 5px 5px #dad0d0;
 }
+
+.entourage-container .left {
+  text-align: center;
+}
+
+.entourage-container .right {
+  text-align: center;
+}
+
+.entourage-container .center {
+  text-align: center;
+}
+
+.entourage-container .title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.entourage-container .left-mobile {
+  text-align: right;
+}
+
+.entourage-container .right-mobile {
+  text-align: left;
+}
+@media only screen and (min-width: 768px) {
+  .entourage-container .left {
+    text-align: right;
+  }
+
+  .entourage-container .right {
+    text-align: left;
+  }
+}
+
+.entourage-container .title.secondary-sponsor {
+  font-size: 20px;
+}
