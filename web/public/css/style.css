@@ -2515,6 +2515,10 @@ button:hover {
   box-shadow: 5px 5px 5px #dad0d0;
 }
 
+.entourage-container {
+  padding: 0;
+}
+
 .entourage-container .left {
   text-align: center;
 }
