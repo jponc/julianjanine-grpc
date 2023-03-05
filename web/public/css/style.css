@@ -2515,10 +2515,6 @@ button:hover {
   box-shadow: 5px 5px 5px #dad0d0;
 }
 
-.entourage-container {
-  padding: 0;
-}
-
 .entourage-container .left {
   text-align: center;
 }
@@ -2543,6 +2539,11 @@ button:hover {
 .entourage-container .right-mobile {
   text-align: left;
 }
+
+.entourage-container .secondary-sponsor-row .col-md-6.right {
+  margin-bottom: 20px;
+}
+
 @media only screen and (min-width: 768px) {
   .entourage-container .left {
     text-align: right;
@@ -2550,6 +2551,10 @@ button:hover {
 
   .entourage-container .right {
     text-align: left;
+  }
+
+  .entourage-container .secondary-sponsor-row .col-md-6.right {
+    margin-bottom: 0px;
   }
 }
 

@@ -37,10 +37,10 @@ export const EntourageScreen = () => {
                 parents of the groom
               </Typography>
               <Typography variant="h5" className="left">
-                Danilo Ponce
+                Mr. Danilo Ponce
               </Typography>
               <Typography variant="h5" className="left">
-                Nora Ponce
+                Mrs. Nora Ponce
               </Typography>
             </div>
             <div className="col-md-6 mb-30">
@@ -48,60 +48,92 @@ export const EntourageScreen = () => {
                 parents of the bride
               </Typography>
               <Typography variant="h5" className="right">
-                Roberto Bustamante
+                Mr. Roberto Bustamante
               </Typography>
               <Typography variant="h5" className="right">
-                Susan Bustamante
+                Mrs. Susan Bustamante
               </Typography>
             </div>
           </div>
-          <div className="row mb-30">
+          <div className="row mb-30 secondary-sponsor-row">
             <div className="col-md-12">
               <Typography variant="h1" className="center title">
                 principal sponsors
               </Typography>
             </div>
-            <div className="col-6">
-              <Typography variant="h5" className="left-mobile">
-                Estelito Cayas
-              </Typography>
-              <Typography variant="h5" className="left-mobile">
-                Dennis Ortiz
-              </Typography>
-              <Typography variant="h5" className="left-mobile">
-                Atty. Jorge Miravite
-              </Typography>
-              <Typography variant="h5" className="left-mobile">
-                Arnel Tesorero
-              </Typography>
-              <Typography variant="h5" className="left-mobile">
-                Jumel Gracia
-              </Typography>
-              <Typography variant="h5" className="left-mobile">
-                Ricky Ezar
+
+            <div className="col-md-6 left">
+              <Typography variant="h5" className="left">
+                Mr. Estelito Cayas
               </Typography>
             </div>
-            <div className="col-6">
-              <Typography variant="h5" className="right-mobile">
-                Elizabeth Cayas
+            <div className="col-md-6 right">
+              <Typography variant="h5" className="right">
+                Mrs. Elizabeth Cayas
               </Typography>
-              <Typography variant="h5" className="right-mobile">
-                Marites Dela Cruz
+            </div>
+
+            <div className="col-md-6 left">
+              <Typography variant="h5" className="left">
+                Mr. Dennis Ortiz
               </Typography>
-              <Typography variant="h5" className="right-mobile">
-                Rosario Miravite
+            </div>
+            <div className="col-md-6 right">
+              <Typography variant="h5" className="right">
+                Mrs. Marites Dela Cruz
               </Typography>
-              <Typography variant="h5" className="right-mobile">
-                Marivie Nicolas
+            </div>
+
+            <div className="col-md-6 left">
+              <Typography variant="h5" className="left">
+                Atty. Jorge Miravite
               </Typography>
-              <Typography variant="h5" className="right-mobile">
-                Angie Gracia
+            </div>
+            <div className="col-md-6 right">
+              <Typography variant="h5" className="right">
+                Mrs. Rosario Miravite
               </Typography>
-              <Typography variant="h5" className="right-mobile">
-                Gina Acuña
+            </div>
+
+            <div className="col-md-6 left">
+              <Typography variant="h5" className="left">
+                Mr. Arnel Tesorero
               </Typography>
-              <Typography variant="h5" className="right-mobile">
-                Dr. Rowena Medina
+            </div>
+            <div className="col-md-6 right">
+              <Typography variant="h5" className="right">
+                Mrs. Marivie Nicolas
+              </Typography>
+            </div>
+
+            <div className="col-md-6 left">
+              <Typography variant="h5" className="left">
+                Mr. Jumel Gracia
+              </Typography>
+            </div>
+            <div className="col-md-6 right">
+              <Typography variant="h5" className="right">
+                Mrs. Angie Gracia
+              </Typography>
+            </div>
+
+            <div className="col-md-6 left">
+              <Typography variant="h5" className="left">
+                Mr. Ricky Ezar
+              </Typography>
+            </div>
+            <div className="col-md-6 right">
+              <Typography variant="h5" className="right">
+                Mrs. Gina Acuña
+              </Typography>
+            </div>
+
+            <div className="col-md-6 left">
+              <Typography variant="h5" className="left"></Typography>
+            </div>
+            <div className="col-md-6 right" style={{ marginBottom: 0 }}>
+              <Typography variant="h5" className="right">
+                Dr. Rowena Modina
               </Typography>
             </div>
           </div>
