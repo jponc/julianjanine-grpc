@@ -90,7 +90,7 @@ export const RSVPScreen = () => {
         className="ready full-page-padding bg-img valign"
         data-background="https://ik.imagekit.io/jponc/julianjanine/rsvp.jpg?tr=w-2001"
       >
-        <div className="container">
+        <div className="container rsvp-container">
           <div className="row">
             <div className="col-md-12">
               <div className="row">
@@ -98,6 +98,17 @@ export const RSVPScreen = () => {
                   <div className="contact-form">
                     <h6>RSVP</h6>
                     <hr className="line line-hr-center" />
+                    {code && (
+                      <div className="subtext">
+                        Invite Code: <b>{code}</b>
+                      </div>
+                    )}
+                    <div className="subtext">
+                      Wedding Date: <b>May 20, 2023</b>
+                    </div>
+                    <div className="subtext">
+                      RSVP Deadline: <b>April 15, 2023</b>
+                    </div>
                     <br />
 
                     {code ? (
@@ -127,7 +138,10 @@ export const RSVPScreen = () => {
                               required
                             />
                           </div>
-                          <div className="col-md-12">
+                          <div
+                            className="col-md-12"
+                            style={{ textAlign: "center" }}
+                          >
                             <button
                               onClick={handleSubmit}
                               disabled={tempCode === ""}
