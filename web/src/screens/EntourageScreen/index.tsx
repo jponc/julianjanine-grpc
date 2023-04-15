@@ -199,7 +199,7 @@ export const EntourageScreen = () => {
                 cord
               </Typography>
               <Typography variant="h5" className="center">
-                Apolinar Cecil Fojas
+                Cecil Apolinar Fojas
               </Typography>
               <Typography variant="h5" className="center">
                 Klariza Jean Espino
