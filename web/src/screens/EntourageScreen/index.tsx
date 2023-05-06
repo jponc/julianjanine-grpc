@@ -226,7 +226,7 @@ export const EntourageScreen = () => {
                 Judy Anne Punsalan
               </Typography>
               <Typography variant="h5" className="right">
-                Leslie Marie Cayas
+                Leslie Maricris Cayas
               </Typography>
             </div>
           </div>
