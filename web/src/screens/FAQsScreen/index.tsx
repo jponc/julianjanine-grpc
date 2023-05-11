@@ -111,19 +111,6 @@ const faqs: FAQ[] = [
     ),
   },
   {
-    title: "When is the deadline for RSVP?",
-    description: (
-      <div>
-        Our{" "}
-        <Link href="/rsvp" target="_blank">
-          RSVP
-        </Link>{" "}
-        is done online. Just make sure to use your invite code and RSVP by{" "}
-        <b>April 1, 2023</b>.
-      </div>
-    ),
-  },
-  {
     title: "Are the wedding venues wheelchair accessible?",
     description:
       "Both ceremony and reception venues are wheelchair accessible.",

@@ -106,9 +106,6 @@ export const RSVPScreen = () => {
                     <div className="subtext">
                       Wedding Date: <b>May 20, 2023</b>
                     </div>
-                    <div className="subtext">
-                      RSVP Deadline: <b>April 15, 2023</b>
-                    </div>
                     <br />
 
                     {code ? (
