@@ -87,8 +87,9 @@ export const RSVPScreen = () => {
   return (
     <Container screen="RSVP">
       <div
-        className="ready full-page-padding bg-img valign"
+        className="ready bg-img valign"
         data-background="https://ik.imagekit.io/jponc/julianjanine/rsvp.jpg?tr=w-2001"
+        style={{ minHeight: "100vh", backgroundPosition: "center center" }}
       >
         <div className="container rsvp-container">
           <div className="row">
@@ -96,7 +97,7 @@ export const RSVPScreen = () => {
               <div className="row">
                 <div className="col-md-8 offset-md-2 bg-white">
                   <div className="contact-form">
-                    <h6>RSVP</h6>
+                    <h6 className="rsvp-title">RSVP</h6>
                     <hr className="line line-hr-center" />
                     {code && (
                       <div className="subtext">
